@@ -1,0 +1,175 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{titlesec}
+%\usepackage{geometry}
+\usepackage{amsmath}   %\nonumber方程后不编号
+\usepackage{xeCJK}
+\setCJKmainfont{Kai}
+
+\title{热力学统计物理第四次作业}
+\date{2021.10.12}
+\author{董建宇}
+
+\begin{document}
+
+\maketitle
+
+\titleformat{\section}[hang]{\small}{\thesection}{0.8em}{}{}
+\titleformat{\subsection}[hang]{\small}{\thesubsection}{0.8em}{}{}
+
+\section{}
+由定义可知：
+\begin{equation}\nonumber
+	C_p=\left(\frac{\partial H}{\partial T}\right)_p
+	%=\left(\frac{\,dU+p\,dV}{\,dT}\right)_p=\left(\frac{\partial U}{\partial T}\right)_p+p\left(\frac{\partial V}{\partial T}\right)_p
+\end{equation}
+则有：
+\begin{equation}\nonumber
+	\left(\frac{\partial C_p}{\partial p}\right)_T=\left(\frac{\partial }{\partial p}\right)_T \left(\frac{\partial }{\partial T}\right)_p H=\left(\frac{\partial }{\partial T}\right)_p \left(\frac{\partial H}{\partial p}\right)_T
+\end{equation}
+利用热力学基本方程与麦克斯韦关系可知：
+\begin{equation}\nonumber
+	\left(\frac{\partial H}{\partial p}\right)_T = T\left(\frac{\partial S}{\partial p}\right)_T + V = -T\left(\frac{\partial V}{\partial T}\right)_p + V
+\end{equation}
+则有：
+\begin{equation}\nonumber
+	\left(\frac{\partial C_p}{\partial p}\right)_T = \left(\frac{\partial }{\partial T}\left(-T\left(\frac{\partial V}{\partial T}\right)_p + V\right)\right)_p = -T\left(\frac{\partial^2V}{\partial T^2}\right)_p
+\end{equation}
+考虑$\left(\partial C_V/\partial V\right)$：\\
+有定义可知：
+\begin{equation}\nonumber
+	C_V = \left(\frac{\partial U}{\partial T}\right)_V
+\end{equation}
+则有：
+\begin{equation}\nonumber
+	\left(\frac{\partial C_V}{\partial V}\right)_T = \left(\frac{\partial }{\partial V}\right)_T \left(\frac{\partial }{\partial T}\right)_V U = \left(\frac{\partial }{\partial T}\right)_V \left(\frac{\partial U}{\partial V}\right)_T
+\end{equation}
+利用热力学基本方程与麦克斯韦关系可知：
+\begin{equation}\nonumber
+	\left(\frac{\partial U}{\partial V}\right)_T=T\left(\frac{\partial S}{\partial V}\right)_T - p = T\left(\frac{\partial p}{\partial T}\right)_V - p
+\end{equation}
+则有：
+\begin{equation}\nonumber
+	\left(\frac{\partial C_V}{\partial V}\right)_T=\left(\frac{\partial }{\partial T}\left(T\left(\frac{\partial p}{\partial T}\right)_V - p\right)\right)_V = T\left(\frac{\partial^2p}{\partial T^2}\right)_V
+\end{equation}
+
+\section{}
+利用热力学基本关系可知：
+\begin{equation}\nonumber
+	C_V=\left(\frac{\partial U}{\partial T}\right)_V = T\left(\frac{\partial S}{\partial T}\right)_V, ~ C_p=\left(\frac{\partial H}{\partial T}\right)_p = T\left(\frac{\partial S}{\partial T}\right)_p
+\end{equation}
+令$S(T,p)=S(T,V(T,p))$，则有：
+\begin{equation}\nonumber
+\begin{aligned}
+	\,dS &= \left(\frac{\partial S}{\partial T}\right)_p\,dT + \left(\frac{\partial S}{\partial p}\right)_T\,dp\\
+	&= \left(\frac{\partial S}{\partial T}\right)_V\,dT + \left(\frac{\partial S}{\partial V}\right)_T\,dV\\
+	&=\left(\frac{\partial S}{\partial T}\right)_V\,dT + \left(\frac{\partial S}{\partial V}\right)_T\left(\frac{\partial V}{\partial T}\right)_p\,dT + \left(\frac{\partial S}{\partial V}\right)_T\left(\frac{\partial V}{\partial p}\right)_T\,dp
+\end{aligned}
+\end{equation}
+则有：
+\begin{equation}\nonumber
+	\left(\frac{\partial S}{\partial T}\right)_p = \left(\frac{\partial S}{\partial T}\right)_V + \left(\frac{\partial S}{\partial V}\right)_T\left(\frac{\partial V}{\partial T}\right)_p
+\end{equation}
+利用麦克斯韦关系可得：
+\begin{equation}\nonumber
+\begin{aligned}
+	C_p-C_V &= T\left(\frac{\partial S}{\partial V}\right)_T\left(\frac{\partial V}{\partial T}\right)_p \\
+	&= T\left(\frac{\partial p}{\partial T}\right)_V\left(\frac{\partial V}{\partial T}\right)_p \\
+	&= \frac{T\left(\frac{\partial p}{\partial T}\right)_V\left(\frac{\partial V}{\partial T}\right)_p\left(-\frac{1}{V}\left(\frac{\partial V}{\partial p}\right)_T\left(\frac{\partial T}{\partial V}\right)_p\left(\frac{\partial V}{\partial T}\right)_p\right)}{-\frac{1}{V}\left(\frac{\partial V}{\partial p}\right)_T} \\
+	&= \frac{TV\left(\frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_p\right)^2}{-\frac{1}{V}\left(\frac{\partial V}{\partial p}\right)_T}
+\end{aligned}
+\end{equation}
+其中有：
+\begin{equation}\nonumber
+	\left(\frac{\partial p}{\partial T}\right)_V\left(\frac{\partial T}{\partial V}\right)_p\left(\frac{\partial V}{\partial p}\right)_T = -1, ~ \kappa_T = -\frac{1}{V}\left(\frac{\partial V}{\partial p}\right)_T, ~ \beta_p=\frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_p
+\end{equation}
+则有：
+\begin{equation}\nonumber
+	C_p-C_V = \frac{TV\beta_p^2}{\kappa_T}
+\end{equation}
+
+\section{}
+由Jacobi行列式性质可知：
+\begin{equation}\nonumber
+	\left(\frac{\partial V}{\partial p}\right)_T = \frac{\partial (V,T)}{\partial (p,T)}, ~ \left(\frac{\partial V}{\partial p}\right)_S = \frac{\partial (V,S)}{\partial (p,S)}
+\end{equation}
+则有：
+\begin{equation}\nonumber
+	\cfrac{\kappa_T}{\kappa_S}=\cfrac{\cfrac{1}{V}\left(\cfrac{\partial V}{\partial p}\right)_T}{\cfrac{1}{V}\left(\cfrac{\partial V}{\partial p}\right)_T} = \cfrac{\cfrac{\partial (V,T)}{\partial (p,T)}}{\cfrac{\partial (V,S)}{\partial (p,S)}} = \cfrac{\cfrac{\partial (p,S)}{\partial (p,T)}}{\cfrac{\partial (V,S)}{\partial (V,T)}} = \cfrac{T\left(\cfrac{\partial S}{\partial T}\right)_p}{T\left(\cfrac{\partial S}{\partial T}\right)_V} = \frac{C_p}{C_V}=\gamma
+\end{equation}
+其中利用了由热力学基本微分方程推得的：
+\begin{equation}\nonumber
+	C_V=\left(\frac{\partial U}{\partial T}\right)_V = T\left(\frac{\partial S}{\partial T}\right)_V, ~ C_p=\left(\frac{\partial H}{\partial T}\right)_p = T\left(\frac{\partial S}{\partial T}\right)_p
+\end{equation}
+
+\section{}
+由于物质的温度保持不变，则其内能不发生变化，由热力学第一定律可知，磁化过程中释放出的热量为：
+\begin{equation}\nonumber
+	Q = -\Delta U + W = \int_0^H \mu_0 V H\,dM = \int_0^H \frac{\mu_0 CVH}{T}\,dH = \frac{\mu_0 CVH^2}{2T}
+\end{equation}
+即磁化过程中释放出的热量为： $\frac{\mu_0 CVH^2}{2T}$
+
+\section{}
+\subsection{}
+对$S=S(T,V)$做全微分得：
+\begin{equation}\nonumber
+	\,dS = \left(\frac{\partial S}{\partial T}\right)_V\,dT + \left(\frac{\partial S}{\partial V}\right)_T\,dV
+\end{equation}
+由热力学基本微分方程可知：
+\begin{equation}\nonumber
+	\left(\frac{\partial S}{\partial T}\right)_V = \frac{1}{T}\left(\frac{\partial U}{\partial T}\right)_V = \frac{C_V}{T}
+\end{equation}
+利用麦克斯韦关系与范德瓦尔斯气体状态方程可知：
+\begin{equation}\nonumber
+	\left(\frac{\partial S}{\partial V}\right)_T = \left(\frac{\partial p}{\partial T}\right)_V = \frac{\nu R}{V-nb}
+\end{equation}
+则有：
+\begin{equation}\nonumber
+\begin{aligned}
+	S(T,V) &= \int \,dS = \int_{T_0}^{T} \frac{C_V}{T}\,dT + \int \frac{\nu R}{V-nb}\,dV + S_0 \\
+	&= \int_{T_0}^{T} \frac{C_V}{T}\,dT + \nu R\ln(V-\nu b) + S_0
+\end{aligned}
+\end{equation}
+\subsection{}
+设$U=U(T,V)$，则有：
+\begin{equation}\nonumber
+	\,dU= \left(\frac{\partial U}{\partial T}\right)_V \,dT + \left(\frac{\partial U}{\partial V}\right)_T \,dV = C_V \,dT + \left(\frac{\partial U}{\partial V}\right)_T \,dV
+\end{equation}
+由热力学基本方程以及麦克斯韦关系可知：
+\begin{equation}\nonumber
+	\left(\frac{\partial U}{\partial V}\right)_T = T\left(\frac{\partial S}{\partial V}\right)_T - p = T\left(\frac{\partial p}{\partial T}\right)_V - p = \frac{\nu RT}{V-\nu b} - \frac{\nu RT}{V-\nu b} + \frac{a\nu^2}{V^2} = \frac{a\nu^2}{V^2}
+\end{equation}
+则有：
+\begin{equation}\nonumber
+	\,dU = C_V \,dT + \frac{a\nu^2}{V^2} \,dV
+\end{equation}
+两侧积分可得：
+\begin{equation}\nonumber
+	U = U_0 + \int_{T_0}^{T} C_V \,dT' - \frac{a\nu^2}{V}
+\end{equation}
+则自由能为：
+\begin{equation}\nonumber
+\begin{aligned}
+	F(T,V) & = U - TS = U_0 + \int_{T_0}^{T} C_V \,dT' - \frac{a\nu^2}{V} - T\left(\int_{T_0}^{T} \frac{C_V}{T'}\,dT' + \nu R\ln(V-\nu b) + S_0\right) \\
+	& = \int_{T_0}^{T}C_V\left(1-\frac{T}{T'}\right)\,dT' - \frac{a\nu^2}{V} -\nu RT\ln(V-\nu b) + F_0
+\end{aligned}
+\end{equation}
+\subsection{}
+由范德瓦尔斯气体方程可知：
+\begin{equation}\nonumber
+	pV = \left(\frac{\nu RT}{V-\nu b} - \frac{a\nu^2}{V^2}\right)V = \frac{\nu RTV}{V-\nu b} - \frac{a\nu^2}{V}
+\end{equation}
+则自由焓为：
+\begin{equation}\nonumber
+\begin{aligned}
+	G(T,V) &= F + pV = \int_{T_0}^{T}C_V\left(1-\frac{T}{T'}\right)\,dT' - \frac{a\nu^2}{V} -\nu RT\ln(V-\nu b) + F_0 + pV\\
+	&= \int_{T_0}^{T}C_V\left(1-\frac{T}{T'}\right)\,dT' + \frac{\nu RTV}{V-nb} - \frac{2a\nu^2}{V} -\nu RT\ln(V-\nu b) +G_0
+\end{aligned}
+\end{equation}
+
+
+
+
+
+
+\end{document}

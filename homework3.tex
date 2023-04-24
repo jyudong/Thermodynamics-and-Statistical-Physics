@@ -1,0 +1,110 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{titlesec}
+%\usepackage{geometry}
+\usepackage{amsmath}   %\nonumber方程后不编号
+\usepackage{xeCJK}
+\setCJKmainfont{Kai}
+
+\title{热力学统计物理第三次作业}
+\date{2021.09.28}
+\author{董建宇}
+
+\begin{document}
+
+\maketitle
+
+\titleformat{\section}[hang]{\small}{\thesection}{0.8em}{}{}
+\titleformat{\subsection}[hang]{\small}{\thesubsection}{0.8em}{}{}
+
+\section{}
+\subsection{}
+设水的比热容为常数$C=4.18\times 10^{3}J/(kg~^{\circ}C)$，则水温度变化dT时吸热为：
+\begin{equation}\nonumber
+	dQ=mC\,dT
+\end{equation}
+则水的熵变为：
+\begin{equation}\nonumber
+	\Delta S_1=\int_{T_1}^{T_2}\frac{dQ}{T}=\int_{T_1}^{T_2}\frac{mC\,dT}{T}=1303.99 J/^{\circ}C
+\end{equation}
+\subsection{}
+将水与热源视作一个整体，由能量守恒得热源放热为：
+\begin{equation}\nonumber
+	\Delta Q=-mC(T_2-T_1)=-4.18\times 10^{5}J
+\end{equation}
+则热源熵变为：
+\begin{equation}\nonumber
+	\Delta S_2=\frac{\Delta Q}{T_2}=-1120.19 J/K
+\end{equation}
+则整个系统熵变为：
+\begin{equation}\nonumber
+	\Delta S=\Delta S_1+\Delta S_2=183.80 J/K
+\end{equation}
+\subsection{}
+欲使整个系统熵变为0，可以设计无穷个热源温度连续分布在$0^{\circ}C$到$100^{\circ}C$，使$0^{\circ}C$的水与温度连续分布的热源接触，则热源此时的熵变为：
+\begin{equation}\nonumber
+	\Delta S_3=\int_{T_1}^{T_2}\frac{dQ'}{T}=-\int_{T_1}^{T_2}\frac{dQ}{T}=-\Delta S_1
+\end{equation}
+系统熵变为：
+\begin{equation}\nonumber
+	\Delta S'=\Delta S_1+\Delta S_3=0
+\end{equation}
+
+\section{}
+引入状态三：$-196^{\circ}C$，压力为1atm的1g氮气，则有从状态二($-196^{\circ}C,压力为1atm的1g液氮$)到状态三的熵变为：
+\begin{equation}\nonumber
+	\Delta S_1=\frac{\Delta Q_1}{T_1}=\frac{\mu m}{T_1}=0.617 cal/K
+\end{equation}
+从状态三到状态一过程，熵变为：
+\begin{equation}\nonumber
+	\Delta S_2=\int_{T_1}^{T_2}\frac{dQ}{T}=\int_{T_1}^{T_2}\frac{mc_p\,dT}{MT}=0.334 cal/K
+\end{equation}
+则两种状态的熵差为：
+\begin{equation}\nonumber
+	S_1-S_2=\Delta S_1+\Delta S_2=0.951 cal/K
+\end{equation}
+
+\section{}
+\subsection{}
+单原子理想气体内能为：
+\begin{equation}\nonumber
+	U=c_VNT
+\end{equation}
+由热力学第一定律可知：
+\begin{equation}\nonumber
+	dQ=dU+pdV=Nc_V\,dT+p\,dV
+\end{equation}
+熵变为：
+\begin{equation}\nonumber
+	\Delta S=\int\frac{dQ}{T}=Nc_V\int\frac{\,dT}{T}+nR\int\frac{\,dV}{V}=Nc_V\ln T+nR\ln V +C
+\end{equation}
+其中，C为常数。\\
+则单原子气体的自由能为：
+\begin{equation}\nonumber
+	F=U-TS=\frac{3}{2}NRT-T\left(S_0+\frac{3}{2}NR\ln T+nR\ln V +C\right)
+\end{equation}
+其中$S_0$为系统初始的熵。
+\subsection{}
+由理想气体状态方程可知，初始状态满足：
+\begin{equation}\nonumber
+	p_i^{I}V_i^{I}=nRT_i^{I},~p_i^{II}V_i^{II}=nRT_i^{II}
+\end{equation}
+活塞经过可逆移动后有：
+\begin{equation}\nonumber
+	p_f^{I}V_f^{I}=nRT_f^{I},~p_f^{II}V_f^{II}=nRT_f^{II}
+\end{equation}
+由于容器器壁是导热的，且容器放在了温度为$0^{\circ}C$的“热池”中，则有：
+\begin{equation}\nonumber
+	T_f^{I}=T_f^{II}=T_0=0^{\circ}C
+\end{equation}
+由于活塞的移动是可逆的，则这是一个准静态过程，即任意时刻两部分气体压强差都相等，且都等于$p_f^{II}-p_f^{I}$。
+则系统对外做功为：
+\begin{equation}\nonumber
+	W=\left(p_f^{II}-p_f^{I}\right)\left(V_i^I-V_f^I\right)=nRT_0\left(\frac{1}{V_f^{II}}-\frac{1}{V_f^{I}}\right)\left(V_i^I-V_f^I\right)=302.81J
+\end{equation}
+
+
+
+
+
+\end{document}

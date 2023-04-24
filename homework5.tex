@@ -1,0 +1,112 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{titlesec}
+%\usepackage{geometry}
+\usepackage{amsmath}   %\nonumber方程后不编号
+\usepackage{xeCJK}
+\setCJKmainfont{Kai}
+
+\title{热力学统计物理第5次作业}
+\date{2021.10}
+\author{董建宇 ~ 2019511017}
+
+\begin{document}
+
+\maketitle
+
+\titleformat{\section}[hang]{\small}{\thesection}{0.8em}{}{}
+\titleformat{\subsection}[hang]{\small}{\thesubsection}{0.8em}{}{}
+
+\section{}
+由克拉伯龙方程可知：
+\begin{equation}\nonumber
+	\frac{\,dp}{\,dT} = \frac{L}{T\left(V_m^{\beta} - V_m^{\alpha}\right)}
+\end{equation}
+其中$\alpha$表示液相，$\beta$表示气相，将水蒸气看作理想气体，则有$V_m^{\beta} \gg V_m^{\alpha}$，即可在近似条件下忽略$V_m^{\alpha}$。同时有$pV_m^{\beta} = RT$，则克拉伯龙方程可化为：
+\begin{equation}\nonumber
+	\frac{1}{p}\frac{\,dp}{\,dT} = \frac{L}{RT^2}
+\end{equation}
+可以解得：
+\begin{equation}\nonumber
+	\ln p = -\frac{L}{RT} + A
+\end{equation}
+其中A为积分常数。则有：
+\begin{equation}\nonumber
+	L = \frac{R\left(\ln p_1 - \ln p_2\right)}{\frac{1}{T_2} - \frac{1}{T_1}} = 4.13\times 10^4 J/mol
+\end{equation}
+
+
+\section{}
+由题目1可知，近似有：
+\begin{equation}\nonumber
+	\ln (p/mmHg) = -\frac{L}{RT} + A
+\end{equation}
+近似条件为假设相变浅热不随温度变化，则在计算某温度的相变浅热时，尽可能选择在该温度附近的条件进行计算，则278K时的汽化热为：
+\begin{equation}\nonumber
+	L = \frac{R \ln \left(\frac{p_1}{p_3}\right)}{\frac{1}{T_3} - \frac{1}{T_1}}
+\end{equation}
+其中$p_1 = 5.69mmHg, p_3 = 7.71mmHg, T_1 = 276K, T_3 = 280K$ \\
+计算可得：$L = 4.88\times 10^4 J/mol$
+
+
+\section{}
+由题目可知，在700K到739K范围内，镁的饱和蒸气压p与T的关系为：
+\begin{equation}\nonumber
+	\lg (p/mmHg) = -\frac{7527}{T} + 8.589
+\end{equation}
+注意到：
+\begin{equation}\nonumber
+	\ln (p/mmHg) = \frac{\lg (p/mmHg)}{\lg e} = -\frac{7527}{T \lg e} + \frac{8.589}{\lg e}
+\end{equation}
+则有
+\begin{equation}\nonumber
+	L = \frac{R \times 7527(K)}{\lg e} = 1.441\times 10^5 J/mol
+\end{equation}
+
+
+\section{}
+设水的相变浅热不随温度变化，则液态水的蒸汽压方程为：
+\begin{equation}\nonumber
+	\ln p = -\frac{L}{RT} + A
+\end{equation}
+已知100$^{\circ}C$时水的汽化热为$L_1 = 4.13\times 10^4 J/mol$，可以计算得$A = 24.81$ \\
+则当温度为$15^{\circ}C$时水的饱和蒸气压为：
+\begin{equation}\nonumber
+	p' = 1942.2 N/m^2
+\end{equation}
+
+
+
+\section{}
+\subsection{}
+联立固态氨蒸气压方程与液态氨蒸汽压方程得：
+\begin{equation}\nonumber
+\left\{\begin{aligned}
+	\ln (p/mmHg) &= 23.3 - \frac{3754}{T} \\
+	\ln (p/mmHg) &= 19.49 - \frac{3063}{T}
+\end{aligned}\right.
+\end{equation}
+可以解得：
+\begin{equation}\nonumber
+\left\{\begin{aligned}
+	p &=  13.48mmHg\\
+	T &= 181.4K
+\end{aligned}\right.
+\end{equation}
+即三相点的压强为$13.48mmHg$，温度为$181.4K$
+\subsection{}
+汽化热为：
+\begin{equation}\nonumber
+	L_1 = R \times 3063(K) = 2.547\times 10^4J/mol
+\end{equation}
+升华热为：
+\begin{equation}\nonumber
+	L_2 = R \times 3754(K) = 3.121\times 10^4 J/mol
+\end{equation}
+熔化热为：
+\begin{equation}\nonumber
+	L_3 = L_2 - L_1 = 5.74\times 10^3 J/mol
+\end{equation}
+
+
+\end{document}

@@ -1,0 +1,155 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{titlesec}
+%\usepackage{geometry}
+\usepackage{amsmath}   %\nonumber方程后不编号
+\usepackage{amsthm,amsmath,amssymb}
+\usepackage{mathrsfs}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+%\usepackage{braket}
+\setCJKmainfont{Kai}
+
+\title{热力学统计物理第十一次作业}
+\date{2021.12}
+\author{董建宇}
+
+
+\begin{document}
+\maketitle 
+
+\titleformat{\section}[hang]{\large}{\thesection}{0.8em}{}{}
+\titleformat{\subsection}[hang]{\small}{\thesubsection}{0.8em}{}{}
+
+\section{}
+\subsection{}
+对于处于热力学平衡态的经典理想气体中的一个分子，速率分布函数为：
+\begin{equation}\nonumber
+	f_{\vec{V}}(\vec{v}) = 4\pi v^2 \left( \frac{m}{2\pi k_B T} \right)^{3/2} e^{-\frac{m v^2}{2k_BT}}.
+\end{equation}
+由$\varepsilon_1 = \frac{1}{2}mv^2,~d\varepsilon = mvdv$可知能量处于$\varepsilon_1$与$\varepsilon_1+d\varepsilon_1$之间的概率为：
+\begin{equation}\nonumber
+	\varphi_1(\varepsilon_1) d\varepsilon_1 = f_{\vec{V}}(\vec{v}) dv = \frac{2}{\sqrt{\pi}}\frac{\sqrt{\varepsilon_1}}{(k_BT)^{3/2}} e^{-\frac{\varepsilon_1}{k_BT}} d\varepsilon_1.
+\end{equation}
+同理可知，对于另一个处于热力学平衡的经典理想气体分子，能量处于$\varepsilon_2$与$\varepsilon_2+d\varepsilon_2$之间的概率为：
+\begin{equation}\nonumber
+	\varphi_2(\varepsilon_2) d\varepsilon_2 = \frac{2}{\sqrt{\pi}}\frac{\sqrt{\varepsilon_1}}{(k_BT)^{3/2}} e^{-\frac{\varepsilon_2}{k_BT}} d\varepsilon_2.
+\end{equation}
+则两个分子的总能量$\varepsilon = \varepsilon_1 + \varepsilon_2$的概率密度函数为:
+\begin{equation}\nonumber
+\begin{aligned}
+	\psi(\varepsilon) &= \int_{0}^{\varepsilon} \varphi_1(\varepsilon-\varepsilon_2) \varphi_2(\varepsilon_2) \,d\varepsilon_2 \\
+	&= \frac{4}{\pi}\frac{\varepsilon}{(k_BT)^3} e^{-\frac{\varepsilon}{k_BT}} \int_0^{\varepsilon} \sqrt{\frac{\varepsilon_2}{\varepsilon}}\sqrt{1-\frac{\varepsilon_2}{\varepsilon}} \,d\varepsilon_2 \\
+	&= \frac{1}{\pi}\frac{\varepsilon^2}{(k_BT)^3} e^{-\frac{\varepsilon}{k_BT}} \int_0^{\pi/2} (1-\cos(4\theta)) \,d\theta \\
+	&= \frac{1}{2} \frac{\varepsilon^2}{(k_BT)^3} e^{-\frac{\varepsilon}{k_BT}}.
+\end{aligned}
+\end{equation}
+其中$\varepsilon_2 = \varepsilon \sin^2\theta$。也就是说两个分子总能量处在$\varepsilon$与$\varepsilon+d\varepsilon$之间的概率为：
+\begin{equation}\nonumber
+	\psi(\varepsilon)\,d\varepsilon = \frac{1}{2} \frac{\varepsilon^2}{(k_BT)^3} e^{-\frac{\varepsilon}{k_BT}}\,d\varepsilon.
+\end{equation}
+\subsection{}
+两个分子总能量的平均值为：
+\begin{equation}\nonumber
+	\bar{\varepsilon} = \int_{0}^{+\infty} \frac{\varepsilon}{2} \frac{\varepsilon^2}{(k_BT)^3} e^{-\frac{\varepsilon}{k_BT}} \,d\varepsilon = \frac{1}{2(k_BT)^3} \times 6(k_BT)^4 = 3k_BT.
+\end{equation}
+即两个分子的总能量的平均值为$\bar{\varepsilon} = 3k_BT$。
+
+
+\section{}
+设$dE$为在$dt$时间内，碰撞到$dA$面积上，速度在$dv_x dv_y dv_z$范围内传给器壁的能量，则有：
+\begin{equation*}
+	dE dt dS = \alpha n \left( \frac{m}{2\pi k_BT} \right)^{3/2} e^{-\frac{m}{2k_BT}(v_x^2 + v_z^2 + v_z^2)} \frac{1}{2}m(v_x^2 + v_y^2 + v_z^2) v_x dv_x dv_y dv_z dt dS
+\end{equation*}
+利用求坐标变换，则有：
+\begin{equation*}
+	dE = \frac{\alpha nm}{2} \left( \frac{m}{2\pi k_BT} \right)^{3/2} v^5 e^{-\frac{m}{2k_BT} v^2} \sin^2\theta \cos\gamma \,dv \,d\theta \,d\gamma.
+\end{equation*}
+积分可知，传递能量为：
+\begin{equation*}
+\begin{aligned}
+	E &= \frac{\alpha nm}{2} \left( \frac{m}{2\pi k_BT} \right)^{3/2} \int_0^{+\infty} \,dv \int_{0}^{\pi} \,d\theta \int_{-\pi/2}^{\pi/2} \,d\gamma v^5 e^{-\frac{m}{2k_BT} v^2} \sin^2\theta \cos\gamma \\
+	&= \frac{\pi\alpha nm}{2} \left( \frac{m}{2\pi k_BT} \right)^{3/2} \left( \frac{2k_BT}{m} \right)^3 \\
+	&= \sqrt{\frac{2}{\pi m}}\alpha n\left( k_BT \right)^{3/2}
+\end{aligned}
+\end{equation*}
+
+
+\section{}
+在温度T的热力学平衡状态下系统的配分函数为：
+\begin{equation}\nonumber
+	Z = e^{-\beta \varepsilon_1}+e^{-\beta \varepsilon_2}.
+\end{equation}
+则系统内能为：
+\begin{equation}\nonumber
+	U = -N\frac{\partial}{\partial \beta}\ln Z = N\frac{\varepsilon_1e^{-\beta\varepsilon_1}+\varepsilon_2e^{-\beta\varepsilon_2}}{e^{-\beta\varepsilon_1}+e^{-\beta\varepsilon_2}}.
+\end{equation}
+系统的熵为：
+\begin{equation}\nonumber
+\begin{aligned}
+	S &= Nk\left( \ln Z-\beta\frac{\partial}{\partial\beta} \ln Z \right) \\
+	&= Nk \left( \ln\left( e^{-\beta\varepsilon_1}+e^{-\beta\varepsilon_2} \right) + \beta \frac{\varepsilon_1e^{-\beta\varepsilon_1}+\varepsilon_2e^{-\beta\varepsilon_2}}{e^{-\beta\varepsilon_1}+e^{-\beta\varepsilon_2}} \right)
+\end{aligned}
+\end{equation}
+在高温极限下，有$\beta \to 0$。则系统内能为：
+\begin{equation}\nonumber
+	U = N\frac{\varepsilon_1+\varepsilon_2}{2}.
+\end{equation}
+解释：粒子处在$\varepsilon_1$和$\varepsilon_2$能级上概率几乎相等，则有一半的粒子处于$\varepsilon_1$能级，有一半的粒子处于$\varepsilon_2$能级。 \\
+系统的熵为：
+\begin{equation}\nonumber
+	S = Nk\ln2.
+\end{equation}
+解释：粒子处在$\varepsilon_1$和$\varepsilon_2$能级上概率几乎相等，由于每个粒子有两种可能的状态，系统的微观状态数为$2^N$。则熵为上式。 \\
+在低温极限下，有$\beta \to \infty$。则系统内能为：
+\begin{equation}\nonumber
+	U = N \min\{\varepsilon_1,\varepsilon_2\}.
+\end{equation}
+其中$\min\{ \varepsilon_1,\varepsilon_2 \}$为取两者最小值。解释：低温极限下全部粒子处于低能级，则系统内能为粒子数乘以低能级能量。 \\
+系统的熵为：
+\begin{equation}\nonumber
+	S = 0
+\end{equation}
+解释：低温极限下全部粒子处于低能级，则系统的微观状态数为1，因而系统的熵为0。 
+
+
+\section{}
+由题意可知，能量为$0$的能级间并度为1，能量为$\varepsilon$的能级间并度为2。则系统的配分函数为：
+\begin{equation}\nonumber
+	Z = 1+2e^{-\beta\varepsilon}.
+\end{equation}
+\subsection{}
+则系统的熵为：
+\begin{equation}\nonumber
+\begin{aligned}
+	S &= Nk\left( \ln Z - \beta\frac{\partial}{\partial \beta}\ln Z \right) \\ 
+	&= Nk\left( \ln\left( 1+2e^{-\beta\varepsilon} \right) + \frac{2\beta\varepsilon e^{-\beta\varepsilon}}{1+2e^{-\beta\varepsilon}} \right) 
+\end{aligned}
+\end{equation}
+其中$\beta = \frac{1}{kT}$，则熵与温度的关系为：
+\begin{equation}\nonumber
+	S = Nk\left( \ln\left( 1+2e^{-\frac{\varepsilon}{kT}} \right) + \frac{2\varepsilon e^{-\frac{\varepsilon}{kT}}}{kT(1+2e^{-\frac{\varepsilon}{kT}})} \right) 
+\end{equation}
+\subsection{}
+系统的内能为：
+\begin{equation}\nonumber
+	U = -N\frac{\partial }{\partial \beta}\ln Z = \frac{2N\varepsilon e^{-\beta\varepsilon}}{1+2e^{-\beta\varepsilon}}.
+\end{equation}
+热熔为：
+\begin{equation}\nonumber
+	C = \frac{dU}{dT} = \frac{dU}{d\beta}\left(-\frac{1}{kT^2}\right) = \frac{2N\varepsilon^2}{kT^2}\frac{e^{-\frac{\varepsilon}{kT}}}{\left(1+2e^{-\frac{\varepsilon}{kT}}\right)^2}.
+\end{equation}
+在高温极限$\varepsilon/kT << 1$时，热熔为：
+\begin{equation*}
+	C = \frac{2kN}{9}\left( \frac{\varepsilon}{kT} \right)^2
+\end{equation*}
+则比热熔（每个粒子热熔）为：
+\begin{equation}\nonumber
+	c =\frac{C}{N} = \frac{2k}{9}\left( \frac{\varepsilon}{kT} \right)^2
+\end{equation}
+趋向于0。
+
+
+
+
+\end{document}

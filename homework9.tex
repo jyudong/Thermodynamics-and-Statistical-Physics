@@ -1,0 +1,315 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{titlesec}
+%\usepackage{geometry}
+\usepackage{amsmath}   %\nonumber方程后不编号
+\usepackage{amsthm,amsmath,amssymb}
+\usepackage{mathrsfs}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+%\usepackage{braket}
+\setCJKmainfont{Kai}
+
+\title{热力学统计物理第九次作业}
+\date{2021.11}
+\author{董建宇}
+
+
+\begin{document}
+\maketitle 
+
+\titleformat{\section}[hang]{\large}{\thesection}{0.8em}{}{}
+\titleformat{\subsection}[hang]{\small}{\thesubsection}{0.8em}{}{}
+
+\section{}
+由于两种粒子可以看做近独立粒子且可以分辨，则粒子数为$N$的粒子1的微观状态数$\Omega_1$和粒子数为$N'$的粒子2的微观状态数$\Omega_2$分别为：
+\begin{equation}\nonumber
+	\Omega_1 = \frac{N!}{\prod\limits_{l}a_l!}\prod_{l}\omega_l\,^{a_l}, ~ \Omega_2 = \frac{N'!}{\prod\limits_l a_l'!}\prod_l \omega_l'\,^{a_l'}.
+\end{equation}
+则系统的总状态数为：
+\begin{equation}\nonumber
+	\Omega = \Omega_1 \times \Omega_2 = \left( \frac{N!}{\prod\limits_{l}a_l!}\prod_{l}\omega_l\,^{a_l} \right) \times \left( \frac{N'!}{\prod\limits_l a_l'!}\prod_l \omega_l'\,^{a_l'} \right).
+\end{equation}
+两侧取对数得：
+\begin{equation}\nonumber
+	\ln \Omega = \ln N! + \ln N'! - \sum_l \ln a_l! + \sum_l a_l \ln \omega_l - \sum_l \ln a_l'! + \sum_l a_l' \omega_l'.
+\end{equation}
+当所有的$a_l,a_l'$都很大时有：
+\begin{equation}\nonumber
+\begin{aligned}
+	&\ln a_l! =a_l \left( \ln a_l - 1 \right), & &\ln a_l' = a_l' \left( \ln a_l' - 1 \right), \\
+	&\ln N! = N \left( \ln N - 1 \right), & &\ln N'! = N' \left( \ln N' - 1 \right)
+\end{aligned}
+\end{equation}
+在平衡条件下有：
+\begin{equation}\nonumber
+\begin{aligned}
+	&\delta N = \sum_l \delta a_l = 0, \delta N' = \sum_l \delta a_l' = 0, \\
+	&\delta E = \sum_l \varepsilon_l a_l + \sum_l \varepsilon_l' a_l' =0, \\
+	&\delta \ln \Omega = -\sum_l \ln\left( \frac{a_l}{\omega_l} \right) \delta a_l + \sum_l \ln\left( \frac{a_l'}{\omega_l'} \right) \delta a_l'.
+\end{aligned}
+\end{equation}
+因而对于任意的$\alpha$,$\alpha'$和$\beta$都有：
+\begin{equation}\nonumber
+\begin{aligned}
+	&\delta \ln \Omega - \alpha \delta N - \alpha' \delta N' - \beta \delta E \\
+	=& -\sum_l \left[ \ln \left( \frac{a_l}{\omega_l} \right) + \alpha + \beta \varepsilon_l \right] \delta a_l - \sum_l \left[ \ln \left( \frac{a_l'}{\omega_l'} \right) + \alpha' + \beta \varepsilon_l' \right] \delta a_l' = 0
+\end{aligned}
+\end{equation}
+由于$\delta a_l$和$\delta a_l'$可以任意取值，则有：
+\begin{equation}\nonumber
+	\ln \left( \frac{a_l}{\omega_l} \right) + \alpha + \beta \varepsilon_l = 0,~ \ln \left( \frac{a_l'}{\omega_l'} \right) + \alpha' + \beta \varepsilon_l' = 0.
+\end{equation}
+即
+\begin{equation}\nonumber
+	a_l = \omega_l e^{-\alpha - \beta \varepsilon_l}, ~ a_l' = \omega_l' e^{-\alpha' - \beta \varepsilon_l'}.
+\end{equation}
+此时系统的状态数为：
+\begin{equation}\nonumber
+\begin{aligned}
+	\Omega = \left( \frac{N!}{\prod\limits_l \omega_le^{-\alpha-\beta\varepsilon_l}!}\prod\limits_l \omega_l^{\omega_l^{-\alpha-\beta\varepsilon_l}} \right) \times \left( \frac{N'!}{\prod\limits_l \omega_l'e^{-\alpha'-\beta\varepsilon_l'}!}\prod\limits_l \omega_l'^{\omega_l'^{-\alpha'-\beta\varepsilon_l'}} \right)
+\end{aligned}
+\end{equation}
+
+如果将一种粒子看作一个子系统，有：
+\begin{equation}\nonumber
+	a_l = \omega_l e^{-\alpha - \beta \varepsilon_l}, ~ a_l' = \omega_l' e^{-\alpha' - \beta' \varepsilon_l'}
+\end{equation}
+则当两系统处于热平衡时有$\beta = \beta'$，即具有共同的$\beta$。
+
+
+\section{}
+\subsection{粒子是玻色子：}
+粒子1的微观状态数$\Omega_1$和粒子2的微观状态数$\Omega_2$分别为：
+\begin{equation}\nonumber
+	\Omega_1 = \prod_l \frac{(\omega_l + a_l - 1)!}{a_l!(\omega_l - 1)!}, ~ \Omega_2 = \prod_l \frac{(\omega_l' + a_l' - 1)!}{a_l'!(\omega_l' - 1)!}.
+\end{equation}
+则系统的微观状态数为：
+\begin{equation}\nonumber
+	\Omega = \Omega_1 \times \Omega_2 = \left( \prod_l \frac{(\omega_l + a_l - 1)!}{a_l!(\omega_l - 1)!} \right) \times \left( \prod_l \frac{(\omega_l' + a_l' - 1)!}{a_l'!(\omega_l' - 1)!} \right). 
+\end{equation}
+两侧取对数可得：
+\begin{equation}\nonumber
+\begin{aligned}
+	\ln \Omega =& \sum_l \left( \ln(\omega_l + a_l -1)! - \ln a_l! - \ln (\omega_l - 1)! \right)\\ 
+	&+ \sum_l \left( \ln(\omega_l' + a_l' - 1)! - \ln a_l'! -\ln (\omega_l' - 1)! \right).
+\end{aligned}
+\end{equation}
+当$a_l>>1,\omega_l>>1;a_l'>>1,\omega_l'>>1$时，有：
+\begin{equation}\nonumber
+\begin{aligned}
+	\ln \Omega =& \sum_l \left( (\omega_l + a_l)\ln(\omega_l + a_l) - a_l \ln a_l - \omega_l \ln \omega_l \right) \\ 
+	&+ \sum_l \left( (\omega_l' + a_l')\ln(\omega_l' + a_l') - a_l' \ln a_l' - \omega_l' \ln \omega_l' \right).
+\end{aligned}
+\end{equation}
+则在平衡条件下有：
+\begin{equation}\nonumber
+\begin{aligned}
+	&\delta N = \sum_l \delta a_l = 0, ~ \delta N' = \sum_l \delta a_l', \\
+	&\delta E = \sum_l \varepsilon_l a_l + \sum_l \varepsilon_l' a_l' = 0, \\
+	&\delta \Omega = \sum_l \ln\left( \frac{\omega_l}{a_l} + 1 \right) \delta a_l + \sum_l \ln \left( \frac{\omega_l'}{a_l'} + 1 \right) \delta a_l'.
+\end{aligned}
+\end{equation}
+则对于任意的$\alpha,\alpha'$和$\beta$都有：
+\begin{equation}\nonumber
+\begin{aligned}
+	&-\delta \Omega + \alpha \delta N + \alpha' \delta N' + \beta \delta E \\
+	=& \sum_l \left[ -\ln \left( \frac{\omega_l}{a_l} + 1 \right) + \alpha + \beta \varepsilon_l \right] \delta a_l + \sum_l \left[ -\ln \left( \frac{\omega_l'}{a_l'} + 1 \right) + \alpha' + \beta \varepsilon_l' \right] \delta a_l'
+\end{aligned}
+\end{equation}
+由于$\delta a_l$和$\delta a_l'$可以取任意值，则有：
+\begin{equation}\nonumber
+	-\ln \left( \frac{\omega_l}{a_l} + 1 \right) + \alpha + \beta\varepsilon_l = 0, ~ -\ln \left( \frac{\omega_l'}{a_l'} + 1 \right) + \alpha' + \beta \varepsilon_l' = 0.
+\end{equation}
+即
+\begin{equation}\nonumber
+	a_l = \frac{\omega_l}{e^{\alpha + \beta\varepsilon_l} - 1}, ~ a_l' = \frac{\omega_l'}{e^{\alpha' + \beta \varepsilon_l'} - 1}.
+\end{equation}
+此时系统微观状态数为：
+\begin{equation}\nonumber
+	\Omega = \left( \prod_l \frac{(\omega_l + \frac{\omega_l}{e^{\alpha+\beta\varepsilon_l} - 1} - 1)!}{(\frac{\omega_l}{e^{\alpha + \beta\varepsilon_l} - 1})! (\omega_l - 1)!} \right) \times \left( \prod_l \frac{(\omega_l' + \frac{\omega_l'}{e^{\alpha'+\beta\varepsilon_l'} - 1} - 1)!}{(\frac{\omega_l'}{e^{\alpha' + \beta\varepsilon_l'} - 1})! (\omega_l' - 1)!} \right)
+\end{equation}
+
+\subsection{粒子是费米子：}
+粒子1的微观状态数$\Omega_1$和粒子2的微观状态数$\Omega_2$分别为：
+\begin{equation}\nonumber
+	\Omega_1 = \prod_l \frac{\omega_l!}{a_l!(\omega_l - a_l)!}, ~ \Omega_2 = \prod_l \frac{\omega_l'!}{a_l'!(\omega_l' - a_l')!}.
+\end{equation}
+则系统的微观状态数为：
+\begin{equation}\nonumber
+	\Omega = \Omega_1 \times \Omega_2 = \left( \prod_l \frac{\omega_l!}{a_l!(\omega_l - a_l)!} \right) \times \left( \prod_l \frac{\omega_l'!}{a_l'!(\omega_l' - a_l)!} \right). 
+\end{equation}
+两侧取对数可得：
+\begin{equation}\nonumber
+\begin{aligned}
+	\ln \Omega =& \sum_l \left( \ln\omega_l! - \ln a_l! - \ln (\omega_l - a_l)! \right)\\ 
+	&+ \sum_l \left( \ln\omega_l'! - \ln a_l'! -\ln (\omega_l' - a_l)! \right).
+\end{aligned}
+\end{equation}
+当$a_l>>1,\omega_l>>1,\omega_l-a_l?>>1;a_l'>>1,\omega_l'>>1,\omega_l'-a_l>>1$时，有：
+\begin{equation}\nonumber
+\begin{aligned}
+	\ln \Omega =& \sum_l \left( \omega_l\ln\omega_l - a_l \ln a_l - (\omega_l - a_l)\ln (\omega_l - a_l) \right) \\ 
+	&+ \sum_l \left( \omega_l'\ln\omega_l' - a_l' \ln a_l' - (\omega_l' - a_l')\ln (\omega_l' - a_l) \right).
+\end{aligned}
+\end{equation}
+则在平衡条件下有：
+\begin{equation}\nonumber
+\begin{aligned}
+	&\delta N = \sum_l \delta a_l = 0, ~ \delta N' = \sum_l \delta a_l', \\
+	&\delta E = \sum_l \varepsilon_l a_l + \sum_l \varepsilon_l' a_l' = 0, \\
+	&\delta \Omega = \sum_l \ln\left( \frac{\omega_l}{a_l} - 1 \right) \delta a_l + \sum_l \ln \left( \frac{\omega_l'}{a_l'} - 1 \right) \delta a_l'.
+\end{aligned}
+\end{equation}
+则对于任意的$\alpha,\alpha'$和$\beta$都有：
+\begin{equation}\nonumber
+\begin{aligned}
+	&-\delta \Omega + \alpha \delta N + \alpha' \delta N' + \beta \delta E \\
+	=& \sum_l \left[ -\ln \left( \frac{\omega_l}{a_l} - 1 \right) + \alpha + \beta \varepsilon_l \right] \delta a_l + \sum_l \left[ -\ln \left( \frac{\omega_l'}{a_l'} - 1 \right) + \alpha' + \beta \varepsilon_l' \right] \delta a_l'
+\end{aligned}
+\end{equation}
+由于$\delta a_l$和$\delta a_l'$可以取任意值，则有：
+\begin{equation}\nonumber
+	-\ln \left( \frac{\omega_l}{a_l} - 1 \right) + \alpha + \beta\varepsilon_l = 0, ~ -\ln \left( \frac{\omega_l'}{a_l'} - 1 \right) + \alpha' + \beta \varepsilon_l' = 0.
+\end{equation}
+即
+\begin{equation}\nonumber
+	a_l = \frac{\omega_l}{e^{\alpha + \beta\varepsilon_l} + 1}, ~ a_l' = \frac{\omega_l'}{e^{\alpha' + \beta \varepsilon_l'} + 1}.
+\end{equation}
+此时系统的微观状态数为：
+\begin{equation}\nonumber
+	\Omega = \left( \prod_l \frac{\omega_l!}{(\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}+1})!(\omega_l - \frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}+1})!} \right) \times \left( \prod_l \frac{\omega_l'!}{(\frac{\omega_l'}{e^{\alpha'+\beta\varepsilon_l'}+1})!(\omega_l' - \frac{\omega_l'}{e^{\alpha'+\beta\varepsilon_l'}+1})!} \right)
+\end{equation}
+
+
+\section{}
+不妨设粒子1为玻色子，粒子2为费米子，则两种粒子的微观状态数分别为：
+\begin{equation}\nonumber
+	\Omega_1 = \prod_l \frac{(\omega_l + a_l - 1)!}{a_l!(\omega_l - 1)!}, ~ \Omega_2 = \prod_l \frac{\omega_l'!}{a_l!(\omega_l' - a_l')!}.
+\end{equation}
+则系统的微观状态数为：
+\begin{equation}\nonumber
+	\Omega = \Omega_1 \times \Omega_2 = \left( \prod_l \frac{(\omega_l + a_l - 1)!}{a_l!(\omega_l - 1)!} \right) \times \left( \prod_l \frac{\omega_l'!}{a_l!(\omega_l' - a_l')!} \right)
+\end{equation}
+两侧取对数可得：
+\begin{equation}\nonumber
+\begin{aligned}
+	\ln \Omega =& \sum_l \ln(\omega_l + a_l - 1)! - \ln a_l! - \ln (\omega - 1)! \\ 
+	&+ \sum_l \ln \omega_l'! - \ln a_l'! - \ln (\omega_l' - a_l')!.
+\end{aligned}
+\end{equation}
+当$a_l>>1,\omega_l>>1;a_l'>>1,\omega_l'>>1,\omega_l'-a_l'>>1$时，有：
+\begin{equation}\nonumber
+\begin{aligned}
+	\ln \Omega =& \sum_l \left( (\omega_l + a_l)\ln(\omega_l + a_l) - a_l\ln a_l - \omega_l \ln \omega_l \right) \\ 
+	&+ \sum_l \left( \omega_l' \ln\omega_l' - a_l' \ln a_l' - (\omega_l' - a_l')\ln(\omega_l' - a_l') \right).
+\end{aligned}
+\end{equation}
+在平衡条件下有：
+\begin{equation}\nonumber
+\begin{aligned}
+	&\delta N = \sum_l \delta a_l = 0, ~ \delta N' = \sum_l \delta a_l' = 0, \\
+	&\delta E = \sum_l \varepsilon_l \delta a_l + \sum_l \varepsilon_l' \delta a_l' = 0, \\
+	&\delta \ln\Omega = \sum_l \ln\left( \frac{\omega_l}{a_l} + 1 \right) \delta a_l + \sum_l \ln\left( \frac{\omega_l'}{a_l'} - 1 \right) \delta a_l'.
+\end{aligned}
+\end{equation}
+则对于任意的$\alpha, \alpha', \beta$都有：
+\begin{equation}\nonumber
+\begin{aligned}
+	&-\delta \Omega + \alpha \delta N + \alpha' \delta N' + \beta \delta E \\
+	=& \sum_l \left[ -\ln\left( \frac{\omega_l}{a_l} + 1 \right) + \alpha + \beta\varepsilon_l \right] \delta a_l + \sum_l \left[ -\ln\left( \frac{\omega_l'}{a_l'} - 1 \right) + \alpha' + \beta\varepsilon_l' \right] \delta a_l'
+\end{aligned}
+\end{equation}
+由于$\delta a_l$和$\delta a_l'$可以取任意值，则有：
+\begin{equation}\nonumber
+	-\ln\left( \frac{\omega_l}{a_l} + 1 \right) + \alpha + \beta\varepsilon_l = 0, ~ -\ln\left( \frac{\omega_l'}{a_l'} - 1 \right) + \alpha' + \beta\varepsilon_l' = 0.
+\end{equation}
+即
+\begin{equation}\nonumber
+	a_l = \frac{\omega_l}{e^{\alpha + \beta\varepsilon_l} - 1}, ~ a_l' = \frac{\omega_l'}{e^{\alpha' + \beta\varepsilon_l'} + 1}.
+\end{equation}
+此时系统的微观状态数为：
+\begin{equation}\nonumber
+	\Omega = \left( \prod_l \frac{(\omega_l+\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}-1)!}{(\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}-1})!(\omega_l-1)!} \right) \times \left( \prod_l \frac{(\omega_l'+\frac{\omega_l'}{e^{\alpha'+\beta\varepsilon_l'}-1}-1)!}{(\frac{\omega_l'}{e^{\alpha'+\beta\varepsilon_l'}-1})!(\omega_l'-1)!} \right)
+\end{equation}
+
+
+
+\section{}
+当两能级的简并度均为1时，假设粒子可分辨，系统的熵为：
+\begin{equation}\nonumber
+	\Omega = \frac{N!}{N_1!N_2!}
+\end{equation}
+则系统的熵为：
+\begin{equation}\nonumber
+	S = k \ln\Omega = k \ln\left( \frac{N!}{N_1!N_2!} \right).
+\end{equation}
+当$N>>1,N_1>>1,N_2>>1$时，近似可得：
+\begin{equation}\nonumber
+	S = k\left(N\ln N - N_1\ln N_1 -N_2\ln N_2 \right).
+\end{equation}
+
+
+\section{}
+粒子总数等于等于自旋向上的粒子数加自旋向下粒子数：
+\begin{equation}\nonumber
+	N = N_{\uparrow} + N_{\downarrow}.
+\end{equation}
+由提示可知:
+\begin{equation}\nonumber
+	M_z = \frac{1}{2}(N_{\uparrow} - N_{\downarrow}).
+\end{equation}
+所以可以解得：
+\begin{equation}\nonumber
+	N_{\uparrow} = \frac{N}{2} + M_z, ~ N_{\downarrow} = \frac{N}{2} - M_z.
+\end{equation}
+当简并度均为1时，体系状态数为：
+\begin{equation}\nonumber
+	\Omega = \binom{N}{N_{\uparrow}} = \frac{N!}{\left( \frac{N}{2} + M_z \right)! \left( \frac{N}{2} - M_z \right)!}.
+\end{equation}
+要使体系状态数最大，则要$\left( \frac{N}{2} + M_z \right)! \left( \frac{N}{2} - M_z \right)!$最小。绘图可知
+\begin{center}
+	\includegraphics[scale = 0.2]{hw9p5.jpeg} 
+\end{center}
+对于任意的$N$当$M_z = 0$时$\left( \frac{N}{2} + M_z \right)! \left( \frac{N}{2} - M_z \right)!$最小。即使体系状态数最大的$M_z$的值为0。\\
+当$\frac{N}{2} + M_z$和$\frac{N}{2} - M_z$远大于1时有
+\begin{equation}\nonumber
+\begin{aligned}
+	&\ln\left( \frac{N}{2} + M_z \right)! \approx \left( \frac{N}{2} + M_z \right) \left( \ln\left(\frac{N}{2} + M_z\right) - 1 \right) \\
+	&\ln\left( \frac{N}{2} - M_z \right)! \approx \left( \frac{N}{2} - M_z \right) \left( \ln\left(\frac{N}{2} - M_z\right) - 1 \right)
+\end{aligned}
+\end{equation}
+则有：
+\begin{equation}\nonumber
+\begin{aligned}
+	\ln \Omega &= \ln N! - \ln\left( \frac{N}{2} + M_z \right)! - \ln\left( \frac{N}{2} - M_z \right)! \\
+	&\approx N\ln N - \left( \frac{N}{2} + M_z \right) \ln\left(\frac{N}{2} + M_z\right) - \left( \frac{N}{2} - M_z \right) \ln\left(\frac{N}{2} - M_z\right)
+\end{aligned}
+\end{equation}
+对$M_z$求导可得：
+\begin{equation}\nonumber
+	\frac{d \ln\Omega}{d M_z} = \ln\left( \frac{N - 2M_z}{N + 2M_z} \right) = 0.
+\end{equation}
+得$M_z = 0$，此时$\ln \Omega$取极值，此时有
+\begin{equation}\nonumber
+	\frac{d^2 \Omega}{d M_z^2} = -\frac{4}{N} < 0.
+\end{equation}
+即$M_z = 0$为$\ln\Omega$的极大值，即体系最状态数最大时$M_z = 0$，此时系统的微观状态数为：
+\begin{equation}\nonumber
+	\Omega_{max} = \frac{N!}{\left(\frac{N}{2}\right)!\left(\frac{N}{2}\right)!}
+\end{equation}
+
+
+
+
+\end{document}
+
+注意到：
+\begin{equation}\nonumber
+\begin{aligned}
+	&\left( \frac{N}{2} + M_z \right)! \left( \frac{N}{2} - M_z \right)! \\ 
+	=& \left[ \prod_{l=0}^{\frac{N}{2} - M_z} \left( \frac{N}{2} + M_z - l \right) \left( \frac{N}{2} - M_z - l \right) \right]  \left[ \prod_{i=1}^{2M_z} \left( \frac{N}{2} - M_z + i \right) \right] \\
+	=& \left[ \prod_{l=0}^{\frac{N}{2} - M_z} \left( \frac{N}{2} + M_z - l \right) \left( \frac{N}{2} - M_z - l \right) \right] \left[ \prod_{j=0}^{} \right]
+\end{aligned}
+\end{equation}
+

@@ -1,0 +1,141 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{titlesec}
+%\usepackage{geometry}
+\usepackage{amsmath}   %\nonumber方程后不编号
+\usepackage{xeCJK}
+\setCJKmainfont{Kai}
+
+\title{热力学统计物理第一次作业}
+\date{2021.09.14}
+\author{董建宇}
+
+\begin{document}
+
+\maketitle
+%\textwidth{2mm}
+\titleformat{\section}[hang]{\small}{\thesection}{0.8em}{}{}
+\titleformat{\subsection}[hang]{\small}{\thesubsection}{0.8em}{}{}
+\begin{section}{}
+    证明：定压膨胀系数$\alpha$，定容压力系数$\beta$，等温压缩系数$\kappa_{T}$满足以下关系。p为压强
+    \begin{equation}\nonumber
+        \alpha=\kappa_T\beta p
+    \end{equation}\\
+    证明：对于一个简单系统，有：$f(p,V,T)=0$\\
+    对上式做全微分得：
+    \begin{equation}\nonumber
+        df(p,V,T)=\frac{\partial f}{\partial p}dp+\frac{\partial f}{\partial V}dV+\frac{\partial f}{\partial T}dT=0
+    \end{equation}
+    则有：
+    \begin{equation}\nonumber
+        \left(\frac{\partial V}{\partial T}\right)_{p}=-\cfrac{\frac{\partial f}{\partial T}}{\frac{\partial f}{\partial V}},~~  
+        \left(\frac{\partial p}{\partial T}\right)_{V}=-\frac{\frac{\partial f}{\partial T}}{\frac{\partial f}{\partial p}},~~ 
+        \left(\frac{\partial V}{\partial p}\right)_T=-\frac{\frac{\partial f}{\partial p}}{\frac{\partial f}{\partial V}}
+    \end{equation}
+    由定义可知：
+    \begin{equation}\nonumber
+        \alpha=\frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_p,~~ \beta=\frac{1}{p}\left(\frac{\partial p}{\partial T}\right)_V,~~ \kappa_T=-\frac{1}{V}\left(\frac{\partial V}{\partial p}\right)_T
+    \end{equation}
+    则有：
+    \begin{equation}\nonumber
+        \kappa_T\beta p=-\frac{1}{V}\left(\frac{\partial p}{\partial T}\right)_{V}\left(\frac{\partial V}{\partial p}\right)_T=\frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_p=\alpha
+    \end{equation}
+    即有：
+    \begin{equation}\nonumber
+        \alpha = \kappa_T\beta p
+    \end{equation}
+\end{section}
+
+\begin{section}{}
+    实际气体的物态方程可以用以下两个公式表达：
+    \begin{equation}\nonumber
+        \begin{aligned}
+            \left(p+\frac{N^2a}{TV^2}\right)\left(V-Nb\right)&=NRT\\
+            pe^{Na/VRT}\left(V-Nb\right)&=NRT
+        \end{aligned}
+    \end{equation}
+    其中a，b均为常数。\\
+    分别针对两个公式，将压强p表达成密度N/V的函数。
+    
+    \begin{subsection}{}
+        对于一式：
+        \begin{equation}\nonumber
+            \left(p+\frac{N^2a}{TV^2}\right)\left(V-Nb\right)=NRT
+        \end{equation}
+        有：
+        \begin{equation}\nonumber
+            p=\frac{N}{V}\frac{RT}{1-b\frac{N}{V}}-\frac{a}{T}\left(\frac{N}{V}\right)^2
+        \end{equation}
+        当$\frac{N}{V}$趋向于0时，由泰勒展开得
+        \begin{equation}\nonumber
+            \frac{RT}{1-b\frac{N}{V}}=RT\sum_{n=0}^{+\infty}\left(\frac{bN}{V}\right)^n
+        \end{equation}
+        则有：
+        \begin{equation}\nonumber
+            p=-\frac{a}{T}\left(\frac{N}{V}\right)^2+RT\sum_{n=0}^{+\infty}b^n\left(\frac{N}{V}\right)^{n+1}
+        \end{equation}
+    \end{subsection}
+
+    \begin{subsection}{}
+        对于二式：
+        \begin{equation}\nonumber
+            pe^{Na/VRT}\left(V-Nb\right)=NRT
+        \end{equation}
+        有：
+        \begin{equation}\nonumber
+            p=\frac{N}{V}\frac{RT}{1-b\frac{N}{V}}exp\left(-\frac{Na}{VRT}\right)
+        \end{equation}
+        当$\frac{N}{V}$趋向于0时，由泰勒展开得：
+        \begin{equation}\nonumber
+            \frac{RT}{1-b\frac{N}{V}}=RT\sum_{i=0}^{+\infty}\left(\frac{bN}{V}\right)^i
+        \end{equation}
+        \begin{equation}\nonumber
+            exp\left(-\frac{a}{RT}\frac{N}{V}\right)=\sum_{j=0}^{\infty}\frac{1}{j!}\left(-\frac{a}{RT}\frac{N}{V}\right)^j
+        \end{equation}
+        则有：
+        \begin{equation}\nonumber
+            p=RT\sum_{i=0}^{\infty}b^i\left(\frac{N}{V}\right)^{i+1}\sum_{j=0}^{\infty}\frac{1}{j!}\left(-\frac{a}{RT}\frac{N}{V}\right)^j
+        \end{equation}
+    \end{subsection}
+\end{section}
+
+\begin{section}{}
+    已知某系统$\alpha=\frac{1}{T}\left(1+\frac{3a}{VT^2}\right)$，$\kappa_T=\frac{1}{p}\left(1+\frac{a}{VT^2}\right)$，证明该系统物态方程为：
+    \begin{equation}\nonumber
+        pV=bT-\frac{ap}{T^2}
+    \end{equation}
+    其中b为常数。\\
+    \\
+    证明：假设$V=V(p,T)$，有定义可知：
+    \begin{equation}\nonumber
+        \frac{\partial V}{\partial p}=-V\kappa_T=-\frac{V}{p}-\frac{a}{pT^2}
+    \end{equation}
+    则有：
+    \begin{equation}\nonumber
+        \frac{dV}{V+\frac{a}{T^2}}=-\frac{1}{p}\,dp
+    \end{equation}
+    两侧对$p$积分得：
+    \begin{equation}\nonumber
+        \ln\left(V+\frac{a}{T^2}\right)=-\ln p+\ln C(T)
+    \end{equation}
+    即：
+    \begin{equation}\nonumber
+        V=\frac{C(T)}{p}-\frac{a}{T^2}
+    \end{equation}
+    其中，$C(T)$为只关于$T$的函数。\\
+    有定义可知：
+    \begin{equation}\nonumber
+        \left(\frac{\partial V}{\partial T}\right)_p=\frac{C'(T)}{p}+\frac{2a}{T^3}=V\alpha=\frac{V}{T}+\frac{3a}{T^3}
+    \end{equation}
+    整理可得：
+    \begin{equation}\nonumber
+        TC'(T)=C(T)
+    \end{equation}
+    即$C(T)=bT$，其中，b为常数。\\
+    则有：
+    \begin{equation}\nonumber
+        pV=bT-\frac{ap}{T^2}
+    \end{equation}
+\end{section}
+
+\end{document}

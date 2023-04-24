@@ -1,0 +1,134 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{titlesec}
+%\usepackage{geometry}
+\usepackage{amsmath}   %\nonumber方程后不编号
+\usepackage{extarrows} %长等号\xlongequal[下面]{上面}
+\usepackage{xeCJK}
+\setCJKmainfont{Kai}
+
+\title{热力学统计物理第6次作业}
+\date{2021.10}
+\author{董建宇 ~ 2019511017}
+
+\begin{document}
+
+\maketitle
+
+\titleformat{\section}[hang]{\small}{\thesection}{0.8em}{}{}
+\titleformat{\subsection}[hang]{\small}{\thesubsection}{0.8em}{}{}
+
+\section{}
+aba aba $\cdots$
+
+
+\section{}
+在温度和压强保持不变时，吉布斯关系为：
+\begin{equation}\nonumber
+	S\,dT - V\,dp + n_1 \,d\mu_1 + n_2 \,d\mu_2 = n_1 \,d\mu_1 + n_2 \,d\mu_2 = 0
+\end{equation}
+其中$n_1$，$n_2$分别是两种组元的物质的量。 \\
+已知$\mu_1 = g_1(T, p) + RT\ln\chi_1$，则当温度和压强不变时，对其微分可得：
+\begin{equation}\nonumber
+	\,d\mu_1 = \frac{RT}{\chi_1} \,d\chi_1
+\end{equation}
+由于$\chi_1 + \chi_2 = 1$，则有：$\,d\chi_1 = -\,d\chi_2$
+进而有：
+\begin{equation}\nonumber
+	\,d\mu_2 = \frac{RT}{\chi_2} \,d\chi_2
+\end{equation}
+两侧积分可得：
+\begin{equation}\nonumber
+	\mu_2 = C(T, p) + RT\ln\chi_2
+\end{equation}
+当$\chi_2 = 1$也就是第二种组元的单元系时，有$\mu_2 = g_2(T, p)$，其中$g_2(T, p)$为第二种组元单元系时的摩尔吉布斯函数。\\
+则第二种组元的化学势必可表示为：
+\begin{equation}\nonumber
+	\mu_2 = g_2(T, p) + RT \ln\chi_2
+\end{equation}
+
+
+\section{}
+对于反应
+\begin{equation}\nonumber
+	\frac{1}{2}N_2 + \frac{3}{2}H_2 - NH_3 \xlongequal[]{}  0
+\end{equation}
+令$p_1,p_2,p_3$分别表示$N_2,H_2,NH_3$的分压，利用道尔顿分压定律可知：
+%$p_1',p_2',p_3'$表示充分反应后$N_2,H_2,NH_3$的分压。利用道尔顿分压定律可知：
+\begin{equation}\nonumber
+\begin{aligned}
+	p_1 = \chi_1p & & p_2 = \chi_2p & & p_3 = \chi_3 p \\
+	%p_1' = \frac{1-\Delta n}{2(2-\Delta n)}p & & p_2' = \frac{3(1-\Delta n)}{2(2-\Delta n)}p & & p_3' = \frac{\Delta n}{2-\Delta n}p
+\end{aligned}
+\end{equation}
+由定义可知，平衡常数为
+\begin{equation}\nonumber
+\begin{aligned}
+	K_p &= \prod_{i=1}^3 p_i^{\nu_i} = p_1^{1/2}\times p_2^{3/2}\times p_3^{-1} \\
+	&= \left( \chi_1p \right)^{1/2} \times \left( \chi_2 p \right)^{3/2} \times \left( \chi_3 p \right)^{-1} \\
+	&= \frac{\sqrt{\chi_1\chi_2^3}}{\chi_3} p
+\end{aligned}
+\end{equation}
+在初始态有$n_0 mol$的$NH_3$，到达平衡后已经分解的$NH_3$为$n_0 \epsilon mol$，此时总物质的量为$n_0(1+\epsilon) mol$。则有：
+\begin{equation}\nonumber
+	\chi_1 = \frac{\epsilon}{2(1+\epsilon)},~\chi_2 = \frac{3\epsilon}{2(1+\epsilon)},~\chi_3 = \frac{1-\epsilon}{1+\epsilon}
+\end{equation}
+则平衡常数为：
+\begin{equation}\nonumber
+	K_p = \frac{\sqrt{27}}{4} \frac{\epsilon^2}{1-\epsilon^2}p
+\end{equation}
+如果将反应方程式写成
+\begin{equation}\nonumber
+	N_2 + 3H_2 - 2NH_3 \xlongequal[]{}  0
+\end{equation}
+则由定义可知，新的平衡常数为：
+\begin{equation}\nonumber
+	K_p' = p_1\times p_2^3 \times p_3^{-2} = K_p^2 = \frac{27}{16}\times \frac{\epsilon ^4}{\left(1-\epsilon^2\right)^2} p^2
+\end{equation}
+
+
+\section{}
+设A表示气体原子，$A^+$表示气体离子，$e^-$表示电子，则根据题意店里方程可以写做：
+\begin{equation}\nonumber
+	A^+ + e^- - A = 0
+\end{equation}
+用$\zeta$表示电离度，设初始时A原子的物质的量为$n_0 ~mol$，则到达平衡后A原子物质的量为$n_0(1-\zeta) ~mol$，$A^+$物质的量为$n_0\zeta ~mol$，电子$e^-$物质的量为$n_0\zeta ~mol$。则三者的摩尔分数分别为：
+\begin{equation}\nonumber
+	\chi_{A} = \frac{1-\zeta}{1+\zeta},~\chi_{A^+} = \frac{\zeta}{1+\zeta},~\chi_{e^-} = \frac{\zeta}{1+\zeta}
+\end{equation}
+则平衡常数为：
+\begin{equation}\nonumber
+	K_p = (\chi_{A^+}p) \times (\chi_{e^-}p) \times (\chi_{A}p)^{-1} = \frac{\zeta^2}{1-\zeta^2} p
+\end{equation}
+由于三种气体均可视作单原子理想气体，则气体的等压摩尔热熔为$C_p = \frac{5}{2}R$。则有：
+\begin{equation}\nonumber
+	\ln K_p = -\frac{W}{RT} + \frac{5}{2}\ln T + C_0
+\end{equation}
+其中$C_0$为常数。则电离度与温度及总压强的关系为：
+\begin{equation}\nonumber
+	\ln\left( \frac{\zeta^2}{1-\zeta^2} p \right) = -\frac{W}{RT} + \frac{5}{2}\ln T + C_0
+\end{equation}
+
+
+\section{}
+在没有磁场施加于此系统条件下，经过足够长的时间（远大于系统弛豫时间）后，系统达到热力学平衡状态，温度降为绝对零度时各原子角动量量子数均为0，原子核状态的简并数为$2l+1 = 0$也就意味着由N个无自旋原子组成的完美晶体的总角动量$l_0=0$，则此时系统的熵为
+\begin{equation}\nonumber
+	S = Nk_B \ln(1) = 0
+\end{equation}
+即与热力学第三定律不矛盾。
+
+
+\section{}
+由于玻璃态黏度很高，因而其弛豫时间很长，也就是说对玻璃迅速降温，一段较长时间内系统处于非热力学平衡状态，而在非热力学平衡状态下，有
+\begin{equation}\nonumber
+	\lim_{T\to 0} S_0 \neq 0
+\end{equation}
+但经过足够长的时间（远大于系统弛豫时间）后，系统达到热力学平衡状态，则此时根据热力学第三定律有：
+\begin{equation}\nonumber
+	\lim_{T\to 0} S_0 = 0
+\end{equation}
+综上所述，在绝对零度下，经过足够长的时间（远大于系统弛豫时间）后，玻璃的熵为0；若系统还未达到热力学平衡状态，则玻璃的熵大于0。也就是说处于热力学不平衡态的玻璃无法到达绝对零度(0K)。 \\
+并不违反热力学第三定律。
+
+
+\end{document}

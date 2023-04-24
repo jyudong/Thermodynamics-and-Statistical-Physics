@@ -1,0 +1,171 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{titlesec}
+%\usepackage{geometry}
+\usepackage{amsmath}   %\nonumber方程后不编号
+\usepackage{xeCJK}
+\setCJKmainfont{Kai}
+
+\title{热力学统计物理第二次作业}
+\date{2021.09.26}
+\author{董建宇}
+
+\begin{document}
+
+\maketitle
+
+\titleformat{\section}[hang]{\small}{\thesection}{0.8em}{}{}
+\titleformat{\subsection}[hang]{\small}{\thesubsection}{0.8em}{}{}
+
+\section{}
+记$p_i$为状态i的压强，$V_i$为状态i的体积。\\
+考虑绝热过程$1\to 2$，则有：
+\begin{equation}\nonumber
+	Q_{12}=0,~~pV^\gamma =C_1
+\end{equation}
+其中$C_1$为常数。\\
+系统对外界做功为：
+\begin{equation}\nonumber
+	W_{12}=\int_{V_1}^{V_2}p\,dV=\int_{V_1}^{V_2}\frac{C_1}{V^{\gamma}}\,dV = \frac{C_1}{1-\gamma} \left (V_2^{1-{\gamma}}-V_1^{1-{\gamma}} \right)=\frac{p_1V_1-p_2V_2}{\gamma-1}
+\end{equation}
+考虑等容过程$2\to 3$，则有：
+\begin{equation}\nonumber
+	W_{23}=0,~~pV=nRT
+\end{equation}
+系统放热为：
+\begin{equation}\nonumber
+	Q_{23}=C_V(T_2-T_3)=\frac{p_2V_2-p_3V_2}{\gamma-1}
+\end{equation}
+考虑绝热过程$3\to 4$，则有：
+\begin{equation}\nonumber
+	Q_{34}=0,~~pV^\gamma =C_2
+\end{equation}
+其中$C_2$为常数。\\
+系统对外界做功为：
+\begin{equation}\nonumber
+	W_{34}=-\int_{V_4}^{V_3}p\,dV=\int_{V_3}^{V_4}\frac{C_2}{V^{\gamma}}\,dV = \frac{C_2}{1-\gamma} \left (V_4^{1-{\gamma}}-V_3^{1-{\gamma}} \right)=\frac{p_3V_2-p_4V_1}{\gamma-1}
+\end{equation}
+考虑等容过程$4\to 1$，则有：
+\begin{equation}\nonumber
+	W_{41}=0,~~pV=nRT
+\end{equation}
+系统吸热为：
+\begin{equation}\nonumber
+	Q_{41}=C_V(T_1-T_4)=\frac{p_1V_1-p_4V_1}{\gamma-1}
+\end{equation}
+则此循环的效率为：
+\begin{equation}\nonumber
+	\eta=\frac{W_{12}+W_{34}}{Q_{41}}=1-\frac{p_2-p_3}{p_1-p_4}\frac{V_2}{V_1}
+\end{equation}
+由于：
+\begin{equation}\nonumber
+	p_1V_1^{\gamma}=p_2V_2^{\gamma},~~p_4V_1^{\gamma}=p_3V_2^{\gamma}
+\end{equation}
+则有：
+\begin{equation}\nonumber
+	\frac{p_1}{p_4}=\frac{p_2}{p_3},~~1-\frac{p_1}{p_4}=1-\frac{p_2}{p_3}
+\end{equation}
+则有：
+\begin{equation}\nonumber
+	\eta=1-\frac{p_2}{p_1}\frac{1-\frac{p_3}{p_2}}{1-\frac{p_4}{p_1}}\frac{V_2}{V_1}=1-\left(\frac{V_1}{V_2}\right)^{\gamma-1}
+\end{equation}
+其中， $\gamma=\frac{C_p}{C_V}$。
+
+
+\section{}
+在等压条件下有：
+\begin{equation}\nonumber
+	dH=C_p\,dT
+\end{equation}
+对两侧定积分得焓变为
+\begin{equation}\nonumber
+	\Delta H=\int_{300}^{1200} (a+bT)\,dT=3984570 ~J/mol
+\end{equation}
+
+\section{}
+对于范德瓦尔斯气体，状态方程为：
+\begin{equation}\nonumber
+	\left(p+\frac{an^2}{V^2}\right)\left(V-nb\right)=nRT
+\end{equation}
+设内能可以表示为：$U=U(V,T)$。对内能函数全微分得：
+\begin{equation}\nonumber
+	dU=\left(\frac{\partial U}{\partial T}\right)_{V}\,dT+\left(\frac{\partial U}{\partial V}\right)_{T}\,dV
+\end{equation}
+其中，$\left(\frac{\partial U}{\partial T}\right)_{V}=C_V$，利用麦克斯韦关系有：$\left(\frac{\partial U}{\partial V}\right)_{T}=T\left(\frac{\partial p}{\partial T}\right)_V-p$。\\
+由状态方程可计算得：
+\begin{equation}\nonumber
+	\left(\frac{\partial U}{\partial V}\right)_{T}=T\left(\frac{\partial p}{\partial T}\right)_V-p=\frac{an^2}{V^2}
+\end{equation}
+则有：
+\begin{equation}\nonumber
+	dU=C_V\,dT+\frac{an^2}{V^2}\,dV
+\end{equation}
+当等压热容为常数时，两侧积分可得范德瓦尔斯气体内能为：
+\begin{equation}\nonumber
+	U=C_VT-\frac{an^2}{V}+U_0
+\end{equation}
+
+\section{}
+对于范德瓦尔斯气体，状态方程为：
+\begin{equation}\nonumber
+	\left(p+\frac{an^2}{V^2}\right)\left(V-nb\right)=nRT
+\end{equation}
+在绝热过程中由热力学第一定律，有：
+\begin{equation}\nonumber
+	\,dU=dW+dQ=-p\,dV
+\end{equation}
+当$C_V$为常数时，有
+\begin{equation}\nonumber
+	\,dU=C_V \,dT+\frac{an^2}{V^2}\,dV
+\end{equation}
+则有
+\begin{equation}\nonumber
+	\left(p+\frac{an^2}{V^2}\right)\,dV+C_V\,dT=\frac{nRT}{V-nb}\,dV+C_V\,dT=0
+\end{equation}
+即范德瓦尔斯气体绝热方程为：
+\begin{equation}\nonumber
+	T\left(V-nb\right)^{nR/C_V}=C=constant
+\end{equation}
+则有当范德瓦尔斯气体绝热膨胀时对外做功为：
+\begin{equation}\nonumber
+\begin{aligned}
+	W&=\int_{V_1}^{V_2}p\,dV=\int_{V_1}^{V_2}\left[nRC\left(V-nb\right)^{-(1+nR/C_V)}-\frac{an^2}{V^2}\right]\,dV\\
+	&=CC_V\left[\left(V_1-nb\right)^{-nR/C_V}-\left(V_2-nb\right)^{-nR/C_V}\right]-\left(\frac{an^2}{V_1}-\frac{an^2}{V_2}\right)
+\end{aligned}
+\end{equation}
+
+
+
+\section{}
+由热力学基本微分方程可知：
+\begin{equation}\nonumber
+\begin{aligned}
+	\,dH&=T\,dS+V\,dp\\
+	\,dG&=-S\,dT+V\,dp
+\end{aligned}
+\end{equation}
+则有：
+\begin{equation}\nonumber
+	\left(\frac{\partial H}{\partial p}\right)_T=T\left(\frac{\partial S}{\partial p}\right)_T+V
+\end{equation}
+设$G=G(T,p)$，对其做全微分则有：
+\begin{equation}\nonumber
+	\,dG=\left(\frac{\partial G}{\partial T}\right)_{p}\,dT+\left(\frac{\partial G}{\partial p}\right)_{T}\,dp
+\end{equation}
+则有：
+\begin{equation}\nonumber
+	-S=\left(\frac{\partial G}{\partial T}\right)_{p},~~V=\left(\frac{\partial G}{\partial p}\right)_{T}
+\end{equation}
+再次偏微分可得：
+\begin{equation}\nonumber
+	\frac{\partial^2G}{\partial T\partial p}=-\left(\frac{\partial S}{\partial p}\right)_{T}=\frac{\partial^2G}{\partial p\partial T}=\left(\frac{\partial V}{\partial T}\right)_p
+\end{equation}
+则有：
+\begin{equation}\nonumber
+	\left(\frac{\partial H}{\partial p}\right)_T=T\left(\frac{\partial S}{\partial p}\right)_T+V=-T\left(\frac{\partial V}{\partial T}\right)_p+V
+\end{equation}
+
+
+
+
+\end{document}

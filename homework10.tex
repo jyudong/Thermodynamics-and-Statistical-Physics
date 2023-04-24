@@ -1,0 +1,143 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{titlesec}
+%\usepackage{geometry}
+\usepackage{amsmath}   %\nonumber方程后不编号
+\usepackage{amsthm,amsmath,amssymb}
+\usepackage{mathrsfs}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+%\usepackage{braket}
+\setCJKmainfont{Kai}
+
+\title{热力学统计物理第九次作业}
+\date{2021.12}
+\author{董建宇}
+
+
+\begin{document}
+\maketitle 
+
+\titleformat{\section}[hang]{\large}{\thesection}{0.8em}{}{}
+\titleformat{\subsection}[hang]{\small}{\thesubsection}{0.8em}{}{}
+
+
+\section{}
+对于极端相对论粒子有：
+\begin{equation}\nonumber
+	\varepsilon_l = c\frac{2\pi\hbar}{L}\left( n_x^2+n_y^2+n_z^2 \right)^{1/2} = \frac{2\pi\hbar c}{V^{1/3}} \left( n_x^2+n_y^2+n_z^2 \right)^{1/2}.
+\end{equation}
+计算偏微分可得：
+\begin{equation}\nonumber
+	\frac{\partial \varepsilon_l}{\partial V} = -\frac{1}{3} \frac{2\pi\hbar c}{V^{4/3}} \left( n_x^2+n_y^2+n_z^2 \right)^{1/2} = -\frac{1}{3} \frac{\varepsilon_l}{V}.
+\end{equation}
+由题目给出的公式可得：
+\begin{equation}\nonumber
+	p = -\sum_l a_l \frac{\partial \varepsilon_l}{\partial V} = \frac{1}{3} \frac{\sum_l a_l\varepsilon_l}{V}.
+\end{equation}
+其中$\sum_l a_l\varepsilon_l$为粒子体系的内能$U$。则有：
+\begin{equation}\nonumber
+	p = \frac{1}{3}\frac{U}{V}.
+\end{equation}
+
+
+\section{}
+当气体以恒定的速度$v_0$沿z方向做整体运动时，分子相对质心运动的能量为：
+\begin{equation}\nonumber
+	\varepsilon = \frac{1}{2m}\left( p_x^2+p_y^2+(p_z-p_0)^2 \right).
+\end{equation}
+满足经典极限条件的气体分子有：
+\begin{equation}\nonumber
+	e^{\alpha} = \frac{V}{N}\left( \frac{2\pi mkT}{h^2} \right)^{3/2}
+\end{equation}
+在$dx dy dz dp_x dp_y dp_z$范围内分子可能的微观状态数为：
+\begin{equation}\nonumber
+	\omega = \frac{dx dy dz dp_x dp_y dp_z}{h^3}.
+\end{equation}
+则质心动量在$dp_x dp_y dp_z$范围内的分子数为：
+\begin{equation}\nonumber
+	N \left( \frac{1}{2\pi mkT} \right)^{3/2} e^{-\frac{1}{2mkT}\left( p_x^2+p_y^2+(p_z-p_0)^2 \right)}dp_x dp_y dp_z.
+\end{equation}
+则速度对应的概率密度函数为：
+\begin{equation}\nonumber
+	f_{\vec{V}}(v_x,v_y,v_z) = \left( \frac{m}{2\pi kT} \right)^{3/2} e^{-\frac{m}{2kT}\left( v_x^2+v_y^2+(v_z-v_0)^2 \right)}.
+\end{equation}
+则方均速率为
+\begin{equation}\nonumber
+\begin{aligned}
+	\overline{v^2} &= \iiint v^2 f_{\vec{V}}(v_x,v_y,v_z) dv_x dv_y dv_z \\
+	&= \left( \frac{m}{2\pi kT} \right)^{1/2} \left( \int v_x^2 e^{-\frac{m}{2kT}v_x^2} dv_x + \int v_y^2 e^{-\frac{m}{2kT}v_y^2} dv_y + \int v_z^2 e^{-\frac{m}{2kT}(v_z - v_0)^2} dv_z \right) \\
+	&= \left( \frac{m}{2\pi kT} \right)^{1/2} \times \left[ 2\sqrt{\frac{2\pi k^3T^3}{m^3}} + \left( \sqrt{\frac{2\pi k^3T^3}{m^3}} + v_0^2\sqrt{\frac{2\pi kT}{m}} \right)\right] \\
+	&= \frac{3kT}{m} + v_0^2
+\end{aligned}
+\end{equation}
+则分子的平均平动能量为：
+\begin{equation}\nonumber
+	\overline{E} = \frac{m}{2}\overline{v^2} = \frac{3}{2}kT+\frac{1}{2}mv_0^2.
+\end{equation}
+
+
+\section{}
+对于一个二维气体，能量表达式为：
+\begin{equation}\nonumber
+	\varepsilon = \frac{1}{2m}\left( p_x^2 + p_y^2 \right).
+\end{equation}
+在$dx dy dp_x dp_y$区域内，粒子的状态数为：
+\begin{equation}\nonumber
+	\omega_l = \frac{dx dy dp_x dp_y}{h^2}.
+\end{equation}
+则该气体的配分函数为：
+\begin{equation}\nonumber
+\begin{aligned}
+	Z_1 &= \sum_l \omega_l e^{-\beta \varepsilon} \\
+	&= \frac{1}{h^2} \iint dx dy \iint e^{-\frac{\beta}{2m}\left( p_x^2 + p_y^2 \right)} dp_x dp_y \\
+	&= \frac{A}{h^2} \int e^{-\frac{\beta}{2m}p_x^2} dp_x \int e^{-\frac{\beta}{2m}p_y^2} dp_y \\
+	&= \frac{A}{h^2} \frac{2\pi m}{\beta} \\
+	&= A \left( \frac{h}{\sqrt{2\pi mk_B T}} \right)^{-2}.
+\end{aligned}
+\end{equation}
+令$\lambda_{th} = \frac{h}{\sqrt{2\pi mk_B T}}$，则上式可写为：
+\begin{equation}\nonumber
+	Z_1 = \frac{A}{\lambda_{th}^2}.
+\end{equation}
+其中$\lambda_{th} = \frac{h}{\sqrt{2\pi mk_B T}}$。
+
+
+\section{}
+选取基态能量为$\varepsilon_1 = 0$，则激发态能量为$\varepsilon_2 = \Delta$，则配分函数为：
+\begin{equation}\nonumber
+	Z_{atom} = \sum_l g_l e^{-\beta \varepsilon_l} = g_1 + g_2 e^{-\beta \Delta}.
+\end{equation}
+内能为：
+\begin{equation}\nonumber
+	U = - \frac{\partial }{\partial \beta} \ln Z_{atom} = \frac{g_2\Delta e^{-\beta\Delta}}{g_1 + g_2e^{-\beta\Delta}}.
+\end{equation}
+则原子的热熔为：
+\begin{equation}\nonumber
+	C = \frac{dQ}{dT} = \frac{dU}{d\beta}\frac{d\beta}{dT} = \frac{-g_1g_2\Delta^2e^{-\beta\Delta}}{\left( g_1 + g_2e^{-\beta\Delta} \right)^2} \times \frac{-1}{k_BT^2} = \frac{g_1g_2\Delta^2e^{-\beta\Delta}}{k_BT^2\left( g_1 + g_2e^{-\beta\Delta} \right)^2}
+\end{equation}
+由题意，新的配分函数为：
+\begin{equation}\nonumber
+	Z = Z_{atom}Z_N = \frac{g_1 + g_2 e^{-\beta \Delta}}{N!}\left( \frac{V}{\lambda_{th}^3} \right)^N
+\end{equation}
+其中$\lambda_{th} = \frac{h}{\sqrt{2\pi m k_BT}}$。 \\
+取对数可得：
+\begin{equation}\nonumber
+	\ln Z = \ln\left( g_1 + g_2 e^{-\beta \Delta} \right) - \ln N! + N \ln V - 3N \ln\left( \frac{h}{\sqrt{2\pi m}} \right) - \frac{3N}{2}\ln \beta.
+\end{equation}
+此时内能为：
+\begin{equation}\nonumber
+	U_1 = - N\frac{\partial }{\partial \beta} \ln Z = \frac{g_2N\Delta e^{-\beta\Delta}}{g_1 + g_2e^{-\beta\Delta}} + \frac{3N^2}{2\beta}.
+\end{equation}
+%压强为：
+%\begin{equation}\nonumber
+	%p = \frac{N}{\beta} \frac{\partial }{\partial V}\ln Z = \frac{N^2}{\beta V}.
+%\end{equation}
+则等容热熔为：
+\begin{equation}\nonumber
+	C = \frac{dU}{dT} = \frac{3k_BN^2}{2} + \frac{g_1g_2N\Delta^2e^{-\beta\Delta}}{k_BT^2\left( g_1 + g_2e^{-\beta\Delta} \right)^2} = N\left[ \frac{3k_BN}{2} + \frac{g_1g_2\Delta^2e^{-\beta\Delta}}{k_BT^2\left( g_1 + g_2e^{-\beta\Delta} \right)^2} \right].
+\end{equation}
+
+
+
+\end{document}

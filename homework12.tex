@@ -1,0 +1,174 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{titlesec}
+%\usepackage{geometry}
+\usepackage{amsmath}   %\nonumber方程后不编号
+\usepackage{amsthm,amsmath,amssymb}
+\usepackage{mathrsfs}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+%\usepackage{braket}
+\setCJKmainfont{Kai}
+
+\title{热力学统计物理第十二次作业}
+\date{2021.12}
+\author{董建宇}
+
+
+\begin{document}
+\maketitle 
+
+\titleformat{\section}[hang]{\large}{\thesection}{0.8em}{}{}
+\titleformat{\subsection}[hang]{\small}{\thesubsection}{0.8em}{}{}
+
+\section{}
+理想费米（波色）气体的巨配分函数的对数为：
+\begin{equation*}
+	\ln \Xi = \pm \sum_l \omega_l \ln\left( 1 \pm e^{-\alpha-\beta\varepsilon_l} \right)
+\end{equation*}
+即：
+\begin{equation*}
+	\ln \Xi = \pm g \frac{2\pi V (2m)^{3/2}}{h^3} \int \sqrt{\varepsilon} \ln\left( 1 \pm e^{-\alpha-\beta\varepsilon} \right)\,d\varepsilon .
+\end{equation*}
+在弱兼并条件下，理想费米（波色）气体的压强为：
+\begin{equation*}
+\begin{aligned}
+	p &= \frac{1}{\beta}\frac{\partial}{\partial V}\ln \Xi \\
+	&= \pm \frac{2\pi g(2m)^{3/2}}{h^3\beta} \int \sqrt{\varepsilon} \left( \pm e^{-\alpha-\beta\varepsilon} - \frac{1}{2}e^{-2\alpha-2\beta\varepsilon} \right) \,d\varepsilon \\
+	&= \frac{g(2\pi m)^{3/2}}{h^3\beta^{5/2}} e^{-\alpha} \left( 1 \mp \frac{1}{4\sqrt{2}}e^{-\alpha} \right) \\
+	&= \frac{NkT}{V} \left( 1 \pm \frac{1}{4\sqrt{2}}e^{-\alpha} \right)
+\end{aligned}
+\end{equation*}
+其中，利用玻尔兹曼分布近似有：
+\begin{equation*}
+	e^{-\alpha} = \frac{N}{V} \frac{h^3}{(2\pi m kT)^{3/2}} \frac{1}{g}.
+\end{equation*}
+则理想费米（波色）气体的压强为：
+\begin{equation*}
+	p = \frac{NkT}{V} \left( 1 \pm \frac{1}{4\sqrt{2}}\frac{N}{V} \frac{h^3}{(2\pi m kT)^{3/2}} \frac{1}{g} \right).
+\end{equation*}
+弱简并理想费米（波色）气体的内能为：
+\begin{equation*}
+	U = \frac{3}{2}NkT\left( 1 \pm \frac{1}{4\sqrt{2}}\frac{N}{V} \frac{h^3}{(2\pi m kT)^{3/2}} \frac{1}{g} \right).
+\end{equation*}
+等容热熔为：
+\begin{equation*}
+	C_V = \left( \frac{\partial U}{\partial T} \right)_V = \frac{3}{2}Nk \left( 1 \mp \frac{1}{8\sqrt{2}}\frac{N}{V}\frac{h^3}{(2\pi mkT)^{3/2}} \frac{1}{g} \right)
+\end{equation*}
+则弱简并理想费米（波色）气体的熵为：
+\begin{equation*}
+\begin{aligned}
+	S &= \int \frac{C_V}{T}\,dT + S_0(V) \\
+	&= \frac{3}{2}Nk\left( \ln T \pm \frac{1}{12\sqrt{2}} \frac{N}{V} \frac{h^3}{(2\pi mkT)^{3/2}} \frac{1}{g} \right) + S_0(V).
+\end{aligned}
+\end{equation*}
+当$\frac{N}{V}\left( \frac{h}{\sqrt{2\pi mkT}} \right)^3 << 1$时，弱简并理想费米（波色）气体趋于经典理想气体，则有：
+\begin{equation*}
+	\frac{3}{2}Nk\ln T + S_0(V) = \frac{3}{2}Nk\ln T + Nk\ln \frac{gV}{N} + \frac{3}{2}Nk \left[ \frac{5}{3} + \ln\left( \frac{2\pi mk}{h^2} \right) \right]
+\end{equation*}
+则弱简并理想费米（波色）气体的熵为：
+\begin{equation*}
+	S = Nk\left( \frac{5}{2} \pm \frac{1}{8\sqrt{2}}\frac{N}{V}\frac{h^3}{(2\pi mkT)^{3/2}}\frac{1}{g} + \frac{3}{2}\ln \frac{2\pi mkT}{h^2} + \ln \frac{gV}{N} \right)
+\end{equation*}
+
+
+
+\section{}
+约束在磁光陷阱中的理想原子气体，其能级为：
+\begin{equation*}
+	\varepsilon_{n_x,n_y,n_z} = \hbar\omega_x\left( n_x+\frac{1}{2} \right) + \hbar\omega_y\left( n_y+\frac{1}{2} \right) + \hbar\omega_z\left( n_z+\frac{1}{2} \right).
+\end{equation*}
+化学式$\mu$由下式确定：
+\begin{equation*}
+	N = \sum_{n_x n_y n_z} \frac{1}{e^{\frac{1}{kT}\left(\hbar(\omega_xn_x + \omega_yn_y + \omega_zn_z) + \varepsilon_0 - \mu\right)} - 1}.
+\end{equation*}
+其中$\varepsilon_0 = \frac{1}{2}\hbar(\omega_x+\omega_y+\omega_z)$。 \\
+当$\mu$趋向于$\varepsilon_0-$时，临界温度$T_C$由下式确定：
+\begin{equation*}
+\begin{aligned}
+	N &= \sum_{n_x n_y n_z} \frac{1}{e^{\frac{\hbar}{kT_C}(\omega_x n_x + \omega_y n_y + \omega_z n_z)} - 1} \\
+	&= \iiint_{0}^{+\infty} \frac{dn_x dn_y dn_z}{e^{\frac{\hbar}{kT_C}(\omega_x n_x + \omega_y n_y + \omega_z n_z)} - 1} \\
+	&= \left( \frac{kT_C}{\hbar\overline{\omega}} \right)^3 \iiint_0^{+\infty} \frac{dn_x' dn_y' dn_z'}{e^{n_x' + n_y' + n_z'} - 1} \\
+	&= \left( \frac{kT_C}{\hbar\overline{\omega}} \right)^3 \iiint_0^{+\infty} dn_x' dn_y' dn_z'\sum_{l=1}^{+\infty} e^{-l(n_x' + n_y' + n_z')} \\
+	&= \left( \frac{kT_C}{\hbar\overline{\omega}} \right)^3 \sum_{l=1}^{+\infty} \frac{1}{l^3} \\
+	&= 1.202 \left( \frac{kT_C}{\hbar\overline{\omega}} \right)^3.
+\end{aligned}
+\end{equation*}
+其中$n_i' = \frac{\hbar \omega_i}{kT_C}n_i(i=x;y;z)$，$\overline{\omega}^3 = \omega_x\omega_y\omega_z$。在$T\leq T_C$时，原子气体的化学势趋于$\frac{\hbar}{2}(\omega_x+\omega_y+\omega_z) = \varepsilon_0$，则有:
+\begin{equation*}
+\begin{aligned}
+	N &= N_0 + \iiint_{0}^{+\infty} \frac{dn_x dn_y dn_z}{e^{\frac{\hbar}{kT}(\omega_x n_x + \omega_y n_y + \omega_z n_z)} - 1} \\
+	&= N_0 + 1.202 \left( \frac{kT}{\hbar\overline{\omega}} \right)^3 \\
+	&= N_0 + N\left( \frac{T}{T_C} \right)^3.
+\end{aligned}
+\end{equation*}
+则有：
+\begin{equation*}
+	\frac{N_0}{N} = 1 - \left( \frac{T}{T_C} \right)^3.
+\end{equation*}
+即$T\leq T_C$时有宏观量级的原子凝聚在基态。
+
+
+\section{}
+在体积V，圆频率$\omega$到$\omega+d\omega$内光子数为：
+\begin{equation*}
+	a(\omega) = \frac{V}{\pi^2c^3}\frac{\omega^2\,d\omega}{e^{\frac{\hbar\omega}{kT}} - 1}
+\end{equation*}
+则温度为T，体积V内的光子气体的平均总光子数为：
+\begin{equation*}
+	N = \int_0^{\infty} a(\omega)\,d\omega = 2.404\frac{V}{\pi^2c^3}\left( \frac{kT}{\hbar} \right)^3
+\end{equation*}
+光子数密度为：
+\begin{equation*}
+	n = \frac{N}{V} = 2.404 \frac{1}{\pi^2c^3}\left( \frac{kT}{\hbar} \right)^3
+\end{equation*}
+\subsection{}
+温度为1000K时：
+\begin{equation*}
+	n_1 = 2.03\times 10^{16}m^{-3}.
+\end{equation*}
+\subsection{}
+温度为3K时：
+\begin{equation*}
+	n_2 = 5.48\times 10^{8}m^{-3}.
+\end{equation*}
+
+
+\section{}
+光子气体内能为：
+\begin{equation*}
+	U = \frac{\pi^2k^4}{15c^3\hbar^3}VT^4.
+\end{equation*}
+则其等容热熔为：
+\begin{equation*}
+	C_V = \left( \frac{\partial U}{\partial T} \right)_V = \frac{4\pi^2k^4}{15c^3\hbar^3}VT^3.
+\end{equation*}
+则光子气体的熵为：
+\begin{equation*}
+	S = \int \frac{C_V}{T} \,dT = \frac{4\pi^2k^4}{45c^3\hbar^3}VT^3 + S_0.
+\end{equation*}
+因为$T = 0$时有$S = 0$，则$S_0 = 0$。即光子气体的熵为：
+\begin{equation*}
+	S = \frac{4\pi^2k^4}{45c^3\hbar^3}VT^3.
+\end{equation*}
+
+
+\section{}
+室温下有：$T = 300K$，则有：
+\begin{equation*}
+	\lambda = \frac{h}{\sqrt{2\pi mkT}} = 4.30\times 10^{-9}m.
+\end{equation*}
+对于金属中自由电子气体：数密度$n_1 = 6\times 10^{28}m^{-3}$，有：
+\begin{equation*}
+	n_1\lambda^3 = 4.78\times 10^3 >> 1.
+\end{equation*}
+即金属中自由电子是简并气体。\\
+对于半导体中导电电子：数密度$n_2 = 10^{20}m^{-3}$，有：
+\begin{equation*}
+	n_2\lambda^3 = 7.97\times 10^{-6} << 1.
+\end{equation*}
+即金属中的电子是非简并气体。
+
+
+
+\end{document}

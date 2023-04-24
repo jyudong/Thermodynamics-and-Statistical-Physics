@@ -1,0 +1,119 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{titlesec}
+%\usepackage{geometry}
+\usepackage{amsmath}   %\nonumber方程后不编号
+\usepackage{amsthm,amsmath,amssymb}
+\usepackage{mathrsfs}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+%\usepackage{braket}
+\setCJKmainfont{Kai}
+
+\title{热力学统计物理第十三次作业}
+\date{2021.12}
+\author{董建宇}
+
+
+\begin{document}
+\maketitle 
+
+\titleformat{\section}[hang]{\large}{\thesection}{0.8em}{}{}
+\titleformat{\subsection}[hang]{\small}{\thesubsection}{0.8em}{}{}
+
+\section{}
+由归一化条件可知：
+\begin{equation*}
+	\sum_s \rho_s = 1.
+\end{equation*}
+则熵为：
+\begin{equation*}
+	S = k \ln\Omega = -k\sum_s \rho_s \ln\frac{1}{\Omega} = -k\sum_s \rho_s\ln\rho_s.
+\end{equation*}
+
+
+\section{}
+对于组元A，配分函数为：
+\begin{equation*}
+\begin{aligned}
+	Z_1 =& \frac{1}{N_1!h^{3N_1}}\int e^{-\beta E} \,d\Omega \\ 
+	=& \frac{1}{N_1!h^{3N_1}} \int e^{-\beta\sum_{i=1}^{3N}\frac{p_i^2}{2m_A}} \,dx_1\cdots dx_{3N} dp_1 \cdots dp_{3N} \\
+	=& \frac{V^{N_1}}{N_1!h^{3N_1}} \left( \frac{2\pi m_A}{\beta} \right)^{\frac{3N_1}{2}} 
+\end{aligned}
+\end{equation*}
+同理可知，组元B对应的配分函数为：
+\begin{equation*}
+	Z_2 = \frac{1}{N_2!h^{3N_2}}\int e^{-\beta E} \,d\Omega = \frac{V^{N_2}}{N_2!h^{3N_2}} \left( \frac{2\pi m_B}{\beta} \right)^{\frac{3N_2}{2}}.
+\end{equation*}
+则系统的配分函数为：
+\begin{equation*}
+	Z = Z_1 \times Z_2 = \frac{V^{N_1+N_2}}{N_1!N_2!h^{3N_1+3N_2}} \left( \frac{2\pi}{\beta} \right)^{\frac{3}{2}(N_1+N_2)}m_A^{\frac{3N_1}{2}}m_B^{\frac{3N_2}{2}}.
+\end{equation*}
+压强p为：
+\begin{equation*}
+	p = \frac{1}{\beta}\frac{\partial}{\partial V} \ln Z = kT\frac{N_1+N_2}{V} = \frac{(n_A+n_B)RT}{V}.
+\end{equation*}
+则混合理想气体物态方程为：
+\begin{equation*}
+	pV = (n_A + n_B)RT.
+\end{equation*}
+混合理想气体的内能为：
+\begin{equation*}
+	U = -\frac{\partial }{\partial \beta} \ln Z = \frac{3(N_1+N_2)}{2}\frac{1}{\beta} = \frac{3(N_1+N_2)kT}{2}.
+\end{equation*}
+混合理想气体的熵为：
+\begin{equation*}
+\begin{aligned}
+	S =& k\left( \ln Z - \beta\frac{\partial}{\partial \beta}\ln Z \right) \\ 
+	=& k \left( N_1\ln\frac{V}{N_1} + N_2\ln\frac{V}{N_2} + (N_1+N_2)\left( \frac{5}{2} + \frac{3}{2}\ln\frac{2\pi kT}{h^2} + \frac{3N_1}{2}\ln m_A + \frac{3N_2}{2}\ln m_B \right) \right).
+\end{aligned}
+\end{equation*}
+其中$N_1 = n_A N_A$，$N_2 = n_B N_A$。$N_A$为阿伏伽德罗常数。
+
+
+\section{}
+等压摩尔热熔为：
+\begin{equation*}
+	C_V = \left( \frac{dU}{dT} \right)_V = \frac{f}{2}R.
+\end{equation*}
+等压摩尔热熔为：
+\begin{equation*}
+\begin{aligned}
+	C_p =& \left( \frac{dU + pdV}{dT} \right)_p \\
+	=& \frac{f}{2}R + \frac{a}{V^2}\left( \frac{\partial V}{\partial T} \right)_p + p\left( \frac{\partial V}{\partial T} \right)_p \\
+	=& C_V + \left( p + \frac{a}{V^2} \right) \left( \frac{\partial V}{\partial T} \right)_p
+\end{aligned} 
+\end{equation*}
+一摩尔范德瓦尔斯气体状态方程为：
+\begin{equation*}
+	\left( p + \frac{a}{V^2} \right)(V - b) = RT.
+\end{equation*}
+两侧在等压条件下对温度T微分：
+\begin{equation*}
+	\left( \frac{RTV^3 - 2aV^2 + 4abV - 2ab^2}{V^3(V-b)} \right) \left( \frac{\partial V}{\partial T} \right)_p = R.
+\end{equation*}
+则有：
+\begin{equation*}
+	C_p - C_V = \frac{RT}{V-b}\left( \frac{\partial V}{\partial T} \right)_p = \frac{R}{1 - \frac{2a}{RTV} + \frac{4ab}{RTV^2} - \frac{2ab^2}{RTV^3}} \approx R\left( 1 + \frac{2a}{RTV} \right) = R + \frac{2a}{TV}.
+\end{equation*}
+即：
+\begin{equation*}
+	C_V = \frac{f}{2}R, ~~ C_p - C_V \approx R + \frac{2a}{TV}.
+\end{equation*}
+
+
+\section{}
+希望$b$数量级约为$10^{-5}m^3/mol$数量级，b为考虑分子大小带来的影响。约等于1mol气体分子体积总和的4被，即有：
+\begin{equation*}
+	b = 4N_A \times \frac{4\pi}{3} \left( \frac{d}{2} \right)^3 \approx 10^{-5} m^3/mol.
+\end{equation*}
+假设该气体内能为：$U = U(T,V)$，要证明内能只依赖温度，只需证明$\left( \frac{\partial U}{\partial V} \right)_T = 0$。由$\,dU = T\,dS - p\,dV$可知：
+\begin{equation*}
+	\left( \frac{\partial U}{\partial V} \right)_T = -p + T \left( \frac{\partial S}{\partial V} \right)_T = -p + T\left( \frac{\partial p}{\partial T} \right)_V = -p + \frac{TR}{V-b} = 0.
+\end{equation*}
+即内能只是温度的函数。
+
+
+
+
+\end{document}
